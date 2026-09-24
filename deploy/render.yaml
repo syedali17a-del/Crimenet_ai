@@ -63,7 +63,7 @@ services:
       - key: CRIMENET_LEDGER_WITNESS_PATH
         value: /tmp/ledger_witness.db
       - key: CRIMENET_OBJECT_STORAGE
-        value: /var/data/object_storage
+        value: /tmp/object_storage
       - key: CRIMENET_DIST
         value: /opt/render/project/src/frontend/dist
 
