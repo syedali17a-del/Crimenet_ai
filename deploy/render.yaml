@@ -19,7 +19,7 @@ services:
   - type: web
     name: crimenet-ai
     runtime: python
-    plan: starter          # a persistent disk requires a paid instance type
+    plan: free          # a persistent disk requires a paid instance type
     region: singapore      # nearest Render region to India
     healthCheckPath: /api/health
 
@@ -59,9 +59,9 @@ services:
       # Persistent state on the mounted disk — the audit hash chain and the
       # write-once evidence blobs must survive a redeploy.
       - key: CRIMENET_LEDGER_PATH
-        value: /var/data/ledger.db
+        value: /tmp/ledger.db
       - key: CRIMENET_LEDGER_WITNESS_PATH
-        value: /var/data/ledger_witness.db
+        value: /tmp/ledger_witness.db
       - key: CRIMENET_OBJECT_STORAGE
         value: /var/data/object_storage
       - key: CRIMENET_DIST
@@ -72,11 +72,7 @@ services:
       # - key: CRIMENET_POSTGRES_DSN
       #   fromDatabase: { name: crimenet-db, property: connectionString }
 
-    disk:
-      name: crimenet-state
-      mountPath: /var/data
-      sizeGB: 1
-
+    
 # Optional managed PostgreSQL. Uncomment together with CRIMENET_POSTGRES_DSN above.
 # databases:
 #   - name: crimenet-db
