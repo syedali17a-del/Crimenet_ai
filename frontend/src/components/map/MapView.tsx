@@ -24,8 +24,24 @@ interface Props {
 
 /**
  * Leaflet map rendered imperatively through a ref (no React wrapper library).
- * Tiles: OpenStreetMap raster tiles.
+ *
+ * Basemap: CARTO's CDN basemaps (OpenStreetMap data). This deliberately does NOT use
+ * `tile.openstreetmap.org`: that server is run by volunteers and its usage policy blocks
+ * application traffic — a deployed instance receives 403 tiles reading "App is not
+ * following the tile usage policy", because app requests are anonymous (no Referer) and
+ * arrive in bursts. CARTO's basemap endpoint is built for application use and needs no
+ * API key at this volume; keep the attribution, which is a licence condition.
+ *
+ * To move to a keyed provider for production, change TILE_URL/TILE_ATTRIBUTION to e.g.
+ * MapTiler (`https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}{r}.png?key=...`) or
+ * Stadia (`https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=...`).
  */
+const TILE_URL = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+const TILE_ATTRIBUTION =
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+const TILE_SUBDOMAINS = 'abcd'
+const TILE_MAX_ZOOM = 20
+
 export default function MapView({
   points, height = 520, selectedId = null, showHeat = true, showLinks = false, onSelect,
 }: Props) {
@@ -41,9 +57,11 @@ export default function MapView({
       center: [13.0827, 80.2707], zoom: 7, zoomControl: true, attributionControl: true,
       scrollWheelZoom: true,
     })
-    const layer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '&copy; OpenStreetMap contributors',
+    const layer = L.tileLayer(TILE_URL, {
+      subdomains: TILE_SUBDOMAINS,
+      maxZoom: TILE_MAX_ZOOM,
+      detectRetina: true,
+      attribution: TILE_ATTRIBUTION,
       errorTileUrl: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
     })
     // A map is the one component here that needs the network. If the basemap cannot be

@@ -66,7 +66,13 @@ async def security_headers(request: Request, call_next):
         )
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["X-Frame-Options"] = "SAMEORIGIN"
-    response.headers["Referrer-Policy"] = "no-referrer"
+    # `no-referrer` made every outbound request from the SPA anonymous, which is exactly
+    # the traffic pattern third-party tile/services providers treat as abusive (the map
+    # basemap returned 403 "App is not following the tile usage policy" on a deployed
+    # instance). `strict-origin-when-cross-origin` is the browser default and still never
+    # leaks a path or query string off-origin — a cross-origin request carries only the
+    # scheme and host, so case IDs never appear in a Referer header.
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
     response.headers["X-CrimeNet-Classification"] = DATA_CLASSIFICATION
     response.headers["X-CrimeNet-TLS"] = TLS_MODE
     response.headers["X-Response-Time-ms"] = f"{(time.perf_counter() - started) * 1000:.1f}"

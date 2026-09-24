@@ -36,7 +36,10 @@ backend/logs/
 # other personal files). It is not part of the application.
 uploads/
 
-# --- Secrets --------------------------------------------------------------
+# --- Secrets ---
+# SSH key material (this workspace root is $HOME in some sandboxes).
+.ssh/
+-----------------------------------------------------------
 .env
 .env.*
 !.env.example
@@ -49,6 +52,12 @@ uploads/
 # --- Export artifacts (transfer aids, not source) ---------------------------
 crimenet-ai.bundle
 crimenet-ai-repo.zip
+
+# --- Tool caches (workspace root is $HOME in some sandboxes) -------
+.cache/
+.npm/
+.local/
+out/
 
 # --- Editors / OS ---------------------------------------------------------
 .DS_Store
