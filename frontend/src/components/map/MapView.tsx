@@ -36,11 +36,45 @@ interface Props {
  * MapTiler (`https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}{r}.png?key=...`) or
  * Stadia (`https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=...`).
  */
-const TILE_URL = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
-const TILE_ATTRIBUTION =
-  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-const TILE_SUBDOMAINS = 'abcd'
-const TILE_MAX_ZOOM = 20
+interface TileProvider {
+  id: string
+  label: string
+  url: string
+  maxZoom: number
+  attribution: string
+}
+
+/**
+ * Basemap providers, tried in order. The first is used; if it fails repeatedly with
+ * nothing loading (a blocked/gated provider — OSM's tile-usage policy rejecting app
+ * traffic, or a keyed provider refusing an unkeyed request) the map falls through to the
+ * next one instead of leaving the operator with grey squares.
+ *
+ * Both are keyless. If you add a keyed provider, put its full URL here (the key travels
+ * in the tile URL, so it is public — restrict it by referrer on the provider's side).
+ */
+const TILE_PROVIDERS: TileProvider[] = [
+  {
+    id: 'osm',
+    label: 'OpenStreetMap',
+    url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  },
+  {
+    id: 'esri',
+    label: 'Esri World Street Map',
+    url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+    maxZoom: 19,
+    attribution: 'Tiles &copy; <a href="https://www.esri.com/">Esri</a> — Esri, Maxar, Earthstar Geographics',
+  },
+]
+
+const TRANSPARENT_PX =
+  'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+
+// How many tiles must fail with none succeeding before we treat a provider as unusable.
+const TILE_ERROR_THRESHOLD = 4
 
 export default function MapView({
   points, height = 520, selectedId = null, showHeat = true, showLinks = false, onSelect,
@@ -49,6 +83,7 @@ export default function MapView({
   const containerRef = useRef<HTMLDivElement | null>(null)
   const mapRef = useRef<L.Map | null>(null)
   const layerRef = useRef<L.LayerGroup | null>(null)
+  const tileLayerRef = useRef<L.TileLayer | null>(null)
   const markerIndex = useRef<Record<string, L.CircleMarker>>({})
 
   useEffect(() => {
@@ -57,19 +92,36 @@ export default function MapView({
       center: [13.0827, 80.2707], zoom: 7, zoomControl: true, attributionControl: true,
       scrollWheelZoom: true,
     })
-    const layer = L.tileLayer(TILE_URL, {
-      subdomains: TILE_SUBDOMAINS,
-      maxZoom: TILE_MAX_ZOOM,
-      detectRetina: true,
-      attribution: TILE_ATTRIBUTION,
-      errorTileUrl: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
-    })
-    // A map is the one component here that needs the network. If the basemap cannot be
-    // fetched we say so instead of showing an empty panel that looks like missing data:
-    // the evidence markers and their coordinates are drawn from the API either way.
-    layer.on('tileerror', () => setTilesUnavailable(true))
-    layer.on('load', () => setTilesUnavailable(false))
-    layer.addTo(map)
+    // A map is the one component here that needs the network. A provider that is blocked
+    // or gated (OSM's tile-usage policy, a keyed provider receiving unkeyed requests) is
+    // swapped for the next one; only when every provider fails do we say the basemap is
+    // unavailable, because the evidence markers and coordinates are drawn from the case
+    // API either way.
+    const addBasemap = (index: number) => {
+      const provider = TILE_PROVIDERS[index]
+      const tileLayer = L.tileLayer(provider.url, {
+        maxZoom: provider.maxZoom,
+        attribution: provider.attribution,
+        errorTileUrl: TRANSPARENT_PX,
+      })
+      tileLayerRef.current = tileLayer
+      let failures = 0
+      let switched = false
+      tileLayer.on('tileload', () => { failures = 0; setTilesUnavailable(false) })
+      tileLayer.on('tileerror', () => {
+        failures += 1
+        if (failures < TILE_ERROR_THRESHOLD || switched) return
+        switched = true
+        if (index + 1 < TILE_PROVIDERS.length) {
+          map.removeLayer(tileLayer)
+          addBasemap(index + 1)
+        } else {
+          setTilesUnavailable(true)
+        }
+      })
+      tileLayer.addTo(map)
+    }
+    addBasemap(0)
     mapRef.current = map
     layerRef.current = L.layerGroup().addTo(map)
     return () => { map.remove(); mapRef.current = null }

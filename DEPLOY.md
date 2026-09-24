@@ -326,12 +326,14 @@ Neo4j are configured, their dumps take over this role.
   That is the recorded, accepted state of this build — the warning is not an error.
 - **Sessions end on restart** in the `demo` profile, by design: the signing key is random
   per process.
-- **The map needs one third-party service.** `MapView.tsx` loads raster basemap tiles from
-  CARTO's CDN (OpenStreetMap data, attribution shown on the map). It is the only
-  cross-origin request the browser makes. If it is unreachable the map degrades to the
-  "Basemap unavailable" notice and the evidence markers, coordinates and convergence links
-  still render from the case API — no analytical output depends on the basemap. Swap in a
-  keyed provider for production use.
+- **The map needs one third-party service.** `MapView.tsx` loads raster basemap tiles,
+  trying OpenStreetMap first and Esri World Street Map if that fails (`TILE_PROVIDERS`),
+  with attribution shown on the map. It is the only cross-origin request the browser makes.
+  Both are keyless; public tile services gate their real capacity behind keys, so a
+  production deployment should use a keyed provider. If every provider is unreachable the
+  map degrades to the "Basemap unavailable" notice and the evidence markers, coordinates
+  and convergence links still render from the case API — no analytical output depends on
+  the basemap.
 - **Security headers:** the app sends `Referrer-Policy: strict-origin-when-cross-origin`
   (browser default). Cross-origin requests carry only the scheme and host, never the path or
   query string, so case IDs cannot leak into a third-party Referer header — while
@@ -363,7 +365,7 @@ its release, and they ship from one origin.
 | Refreshing `/audit` gives 404 | SPA fallback missing (you are not using `serve_prod.py`, or the static host lacks the `/*` → `/index.html 200` rule) | Apply the rule from 4B, or run `serve_prod:app` |
 | Page is blank, console shows `Unexpected token '<'` | A missing asset returned HTML | With `serve_prod.py` this cannot happen (`.js`/`.css` misses return 404); check the asset URL on a custom proxy config |
 | `/api/health` says `NER backend: spaCy:blank(en) + rules` | spaCy model not installed | `python -m spacy download en_core_web_sm`, then restart |
-| **Map page shows grey squares reading "403 Access blocked … tile usage policy"** | The basemap was `tile.openstreetmap.org` — OSM's volunteer servers block application traffic (403 tiles quoting <https://wiki.osmfoundation.org/wiki/Blocked>). The app also sent `Referrer-Policy: no-referrer`, so each tile request arrived anonymous, which is the pattern those servers treat as abuse | Fixed: `MapView.tsx` uses CARTO's CDN basemap (`TILE_URL`), and the header is now `strict-origin-when-cross-origin`. If you must use OSM tiles, they are for OSM's own use — use a keyed provider instead (MapTiler, Stadia, Thunderforest) by editing `TILE_URL`/`TILE_ATTRIBUTION` |
+| **Map shows "403 Access blocked … tile usage policy" or "API KEY REQUIRED" squares** | A basemap provider refused the app's tile requests: `tile.openstreetmap.org` blocks application traffic, and CARTO now watermarks keyless `basemaps.cartocdn.com` requests. The app also used to send `Referrer-Policy: no-referrer`, so every tile request arrived anonymous — the pattern such servers treat as abuse | Fixed: `MapView.tsx` holds an ordered `TILE_PROVIDERS` list (OpenStreetMap first, then Esri World Street Map) and **fails over automatically** after repeated tile errors, and the header is now `strict-origin-when-cross-origin`. To use a keyed provider instead, put its full URL in `TILE_PROVIDERS[0].url` (MapTiler, Stadia, Thunderforest) — the key travels in the tile URL, so restrict it by referrer on the provider's side |
 | Uptime monitor reports `405` on the site root | Monitors often probe with `HEAD` | Fixed: the SPA fallback answers `GET` **and** `HEAD` (missing `.js`/`.css` and unknown `/api/*` still return 404) |
 | Everyone is logged out after a deploy | `demo` profile: random per-process signing key | Expected; set `CRIMENET_JWT_SECRET` to keep sessions across restarts |
 | Audit records look "missing" after a redeploy | Ledger on an ephemeral filesystem | Move it to the persistent volume (section 4A / 6) |

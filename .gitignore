@@ -64,3 +64,6 @@ out/
 Thumbs.db
 *.swp
 *~
+
+# Local verification artefacts (tile/basemap comparisons, scratch renders)
+tile_compare.png

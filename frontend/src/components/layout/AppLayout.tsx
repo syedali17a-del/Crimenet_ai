@@ -301,7 +301,11 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen w-full">
       {/* ── glass top bar ─────────────────────────────────────────────────── */}
-      <header className="glass fixed inset-x-0 top-0 z-40 rounded-none border-x-0 border-t-0">
+      {/* Near-opaque, for the same reason as the menus: the header carries the product name,
+          the case scope select and the global search, and at 65% alpha the page title and
+          filter row behind it ghosted through them. Blur stays on the surfaces that carry no
+          text of their own. */}
+      <header className="glass-solid fixed inset-x-0 top-0 z-40 rounded-none border-x-0 border-t-0">
         <div className="flex items-center gap-2 px-3 py-2.5 sm:gap-3 sm:px-4">
           <button
             className="focus-ring rounded-lg p-1.5 text-[var(--color-text)] transition hover:bg-[var(--color-primary-soft)] lg:hidden"
