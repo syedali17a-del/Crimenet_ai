@@ -1,0 +1,41 @@
+================================================================================
+          SYNTHETIC DEMONSTRATION DATA - NOT A REAL REQUISITION LETTER          
+   Generated for the CrimeNet AI prototype. No real person, vehicle, account,   
+         case, police station, bank or telecom operator is represented.         
+         Not evidence. Not for operational, legal or investigative use.         
+================================================================================
+
+                       OFFICE OF THE INSPECTOR OF POLICE                        
+                     INTELLIGENCE ANALYSIS CELL (SYNTHETIC)                     
+
+  Reference........................ : CASE-305 / BANK / 01
+  Date............................. : 22/08/2025
+
+ To
+    Nodal Officer, Bharat Coastal Bank (Synthetic), Chennai Region
+
+ Sir / Madam,
+
+ Sub: Requisition for account statement and KYC particulars - CASE-305 - reg.
+ Ref: Section 94 of the Bharatiya Nagarik Suraksha Sanhita, 2023
+
+    You are required to furnish certified statements of account and the KYC
+ particulars in respect of the following accounts for the period 18/08/2025 to
+ 25/08/2025:
+
+      1. A/C 33901122
+      2. A/C 44120987
+
+    The statements may be furnished in machine-readable form together with the
+ certificate under Section 63(4)(c) of the Bharatiya Sakshya Adhiniyam, 2023.
+
+                                                    Yours faithfully,
+
+                                                    /s/ J. Vetrivel
+                                                    Thiru J. Vetrivel, Inspector (Intelligence Analysis Cell)
+
+--------------------------------------------------------------------------------
+ Document reference : CASE-305 / BANK / 01 (synthetic)
+ Ingested into CrimeNet AI as : EV-3070   (Case CASE-305)
+ Classification : SYNTHETIC DEMONSTRATION DATA
+--------------------------------------------------------------------------------

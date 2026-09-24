@@ -1,0 +1,23 @@
+{
+  "python.analysis.extraPaths": ["${workspaceFolder}/backend"],
+  "python.terminal.activateEnvironment": true,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/node_modules": true,
+    "**/dist": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/package-lock.json": true,
+    "backend/object_storage": true
+  },
+  "editor.formatOnSave": false,
+  "editor.tabSize": 2,
+  "[python]": { "editor.tabSize": 4 },
+  "typescript.tsdk": "frontend/node_modules/typescript/lib",
+  "tailwindCSS.experimental.classRegex": [
+    ["className\\s*=\\s*[\"'`]([^\"'`]*)[\"'`]", "([a-zA-Z0-9\\-:\\[\\]\\/\\.%]+)"]
+  ],
+  "emmet.includeLanguages": { "typescriptreact": "html" }
+}

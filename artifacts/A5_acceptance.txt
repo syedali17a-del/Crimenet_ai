@@ -1,0 +1,22 @@
+
+====================================================================================================
+A5 — READ-ACCESS AUDIT   (GET /api/evidence/EV-1024)
+====================================================================================================
+EVIDENCE_VIEWED records before this read: 0  -> after: 1
+newest record:
+{
+  "audit_id": "AUD-00008",
+  "timestamp": "2026-09-22T16:24:09Z",
+  "user_id": "SUP-1100",
+  "role": "SUPERVISOR",
+  "action": "EVIDENCE_VIEWED",
+  "case_id": "CASE-101",
+  "object_id": "EV-1024",
+  "status": "SUCCESS",
+  "detail": "Opened evidence content (FIR, 577 characters) for case CASE-101.",
+  "hash": "fefe0ac07cf4fe47fd7524b72aaa0efc19471479f360972489a7d9e874b48969",
+  "prev_hash": "a7120c13c4c3e950acc23be71bd9ca9a3bf54b80bffae936400d5f7ae971e292",
+  "chain_hash": "a7e5454ed30c30fbf8a7d06d88fa20e7a0319e80254e11c5b2f06e05bff84acc"
+}
+
+list endpoint (GET /api/evidence) added records: 0  (must be 0)

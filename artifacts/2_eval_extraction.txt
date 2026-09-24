@@ -1,0 +1,193 @@
+============================================================================================
+REPORT 1 - ENTITY EXTRACTION vs LABELLED GROUND TRUTH (10 seeded documents + the real FIR PDF, 5 cases, 9 entity types)
+============================================================================================
+document   case      type           precision   recall     F1   tp  fp  fn
+--------------------------------------------------------------------------------------------
+EV-1024    CASE-101  PERSON            100.0%   100.0% 100.0%    1   0   0
+EV-1024    CASE-101  LOCATION          100.0%   100.0% 100.0%    2   0   0
+EV-1024    CASE-101  VEHICLE           100.0%   100.0% 100.0%    1   0   0
+EV-1024    CASE-101  PHONE             100.0%   100.0% 100.0%    1   0   0
+EV-1024    CASE-101  DATE              100.0%   100.0% 100.0%    2   0   0
+EV-1025    CASE-101  PERSON            100.0%   100.0% 100.0%    1   0   0
+EV-1025    CASE-101  LOCATION          100.0%   100.0% 100.0%    1   0   0
+EV-1025    CASE-101  PHONE             100.0%   100.0% 100.0%    2   0   0
+EV-1025    CASE-101  DATE              100.0%   100.0% 100.0%    1   0   0
+EV-1026    CASE-101  PERSON            100.0%   100.0% 100.0%    3   0   0
+EV-1026    CASE-101  ORGANIZATION      100.0%   100.0% 100.0%    1   0   0
+EV-1026    CASE-101  LOCATION          100.0%   100.0% 100.0%    2   0   0
+EV-1026    CASE-101  VEHICLE           100.0%   100.0% 100.0%    1   0   0
+EV-1026    CASE-101  DATE              100.0%   100.0% 100.0%    1   0   0
+EV-2041    CASE-202  PERSON            100.0%   100.0% 100.0%    3   0   0
+EV-2041    CASE-202  LOCATION          100.0%   100.0% 100.0%    1   0   0
+EV-2041    CASE-202  VEHICLE           100.0%   100.0% 100.0%    2   0   0
+EV-2041    CASE-202  PHONE             100.0%   100.0% 100.0%    2   0   0
+EV-2041    CASE-202  DATE              100.0%   100.0% 100.0%    1   0   0
+EV-2041    CASE-202  ALIAS             100.0%   100.0% 100.0%    1   0   0
+EV-2042    CASE-202  PERSON            100.0%   100.0% 100.0%    1   0   0
+EV-2042    CASE-202  LOCATION          100.0%   100.0% 100.0%    1   0   0
+EV-2042    CASE-202  VEHICLE           100.0%   100.0% 100.0%    1   0   0
+EV-2042    CASE-202  DEVICE            100.0%   100.0% 100.0%    1   0   0
+EV-2042    CASE-202  DATE              100.0%   100.0% 100.0%    1   0   0
+EV-2042    CASE-202  ALIAS             100.0%   100.0% 100.0%    1   0   0
+EV-2043    CASE-202  PERSON            100.0%   100.0% 100.0%    3   0   0
+EV-2043    CASE-202  LOCATION          100.0%    66.7%  80.0%    2   0   1
+EV-2043    CASE-202  VEHICLE           100.0%   100.0% 100.0%    1   0   0
+EV-2043    CASE-202  PHONE             100.0%   100.0% 100.0%    1   0   0
+EV-2043    CASE-202  DATE              100.0%   100.0% 100.0%    2   0   0
+EV-3070    CASE-305  PERSON            100.0%   100.0% 100.0%    3   0   0
+EV-3070    CASE-305  PHONE             100.0%   100.0% 100.0%    1   0   0
+EV-3070    CASE-305  ACCOUNT           100.0%   100.0% 100.0%    2   0   0
+EV-3070    CASE-305  DATE              100.0%   100.0% 100.0%    1   0   0
+EV-3071    CASE-305  PERSON            100.0%   100.0% 100.0%    2   0   0
+EV-3071    CASE-305  ORGANIZATION      100.0%   100.0% 100.0%    1   0   0
+EV-3071    CASE-305  LOCATION          100.0%   100.0% 100.0%    1   0   0
+EV-3071    CASE-305  VEHICLE           100.0%   100.0% 100.0%    1   0   0
+EV-3071    CASE-305  DATE              100.0%   100.0% 100.0%    1   0   0
+EV-3071    CASE-305  ALIAS             100.0%   100.0% 100.0%    1   0   0
+EV-4090    CASE-407  PERSON            100.0%   100.0% 100.0%    3   0   0
+EV-4090    CASE-407  ORGANIZATION      100.0%   100.0% 100.0%    1   0   0
+EV-4090    CASE-407  LOCATION          100.0%   100.0% 100.0%    1   0   0
+EV-4090    CASE-407  VEHICLE           100.0%   100.0% 100.0%    2   0   0
+EV-4090    CASE-407  DATE              100.0%   100.0% 100.0%    2   0   0
+FIR_0412-2 CASE-101  PERSON            100.0%   100.0% 100.0%    5   0   0
+FIR_0412-2 CASE-101  LOCATION          100.0%   100.0% 100.0%    3   0   0
+FIR_0412-2 CASE-101  VEHICLE           100.0%   100.0% 100.0%    1   0   0
+FIR_0412-2 CASE-101  PHONE             100.0%   100.0% 100.0%    1   0   0
+FIR_0412-2 CASE-101  DATE              100.0%    50.0%  66.7%    1   0   1
+FIR_0412-2 CASE-101  ALIAS             100.0%   100.0% 100.0%    4   0   0
+--------------------------------------------------------------------------------------------
+TYPE           precision   recall     F1     tp   fp   fn
+PERSON            100.0%   100.0% 100.0%     25    0    0
+ORGANIZATION      100.0%   100.0% 100.0%      3    0    0
+LOCATION          100.0%    93.3%  96.6%     14    0    1
+VEHICLE           100.0%   100.0% 100.0%     10    0    0
+PHONE             100.0%   100.0% 100.0%      8    0    0
+ACCOUNT           100.0%   100.0% 100.0%      2    0    0
+DEVICE            100.0%   100.0% 100.0%      1    0    0
+DATE              100.0%    92.9%  96.3%     13    0    1
+ALIAS             100.0%   100.0% 100.0%      7    0    0
+--------------------------------------------------------------------------------------------
+MICRO AVERAGE     100.0%    97.6%  98.8%     83    0    2
+
+labelled mentions: 85   correctly found: 83   spurious: 0   missed: 2
+
+per-type, THE 10 SEEDED DOCUMENTS ONLY (the set the previous pass measured,
+so this table is directly comparable with the pre-hardening run):
+TYPE           precision   recall     F1     tp   fp   fn
+PERSON            100.0%   100.0% 100.0%     20    0    0
+ORGANIZATION      100.0%   100.0% 100.0%      3    0    0
+LOCATION          100.0%    91.7%  95.7%     11    0    1
+VEHICLE           100.0%   100.0% 100.0%      9    0    0
+PHONE             100.0%   100.0% 100.0%      7    0    0
+ACCOUNT           100.0%   100.0% 100.0%      2    0    0
+DEVICE            100.0%   100.0% 100.0%      1    0    0
+DATE              100.0%   100.0% 100.0%     12    0    0
+ALIAS             100.0%   100.0% 100.0%      3    0    0  <- new in this pass
+
+per-source aggregate:
+   the 10 seeded evidence documents   precision 100.0%   recall  98.6%   F1  99.3%   (tp 68, fp 0, fn 1)
+   the real FIR PDF (dataset pack)    precision 100.0%   recall  93.8%   F1  96.8%   (tp 15, fp 0, fn 1)
+   ALL documents                      precision 100.0%   recall  97.6%   F1  98.8%   (tp 83, fp 0, fn 2)
+
+ALIAS only (the type the second hardening pass fixed, scored here for the first time):
+   precision 100.0%   recall 100.0%   F1 100.0%   tp 7  fp 0  fn 0
+
+per-mention detail (what failed):
+    EV-2043 LOCATION: MISSED   madurai
+    FIR_0412-2025_CASE-101_Chennai-Central.pdf DATE: MISSED   11-aug
+
+============================================================================================
+REPORT 1b - NEGATIVE CASES (text where an entity must NOT be extracted)
+============================================================================================
+id          language  must NOT appear                           must still appear              outcome
+--------------------------------------------------------------------------------------------
+NEG-HI-01   hi        PERSON 'फोन'                   not present PERSON 'Ravi Kumar'            present
+                      LOCATION 'फोन'                 not present PHONE '+919840012345'          present
+                                                                DATE '12 August'               present
+NEG-HI-02   hi        PERSON 'मोबाइल फोन'            not present PERSON 'Ravi Kumar'            present
+                      PERSON 'मोबाइल'                not present VEHICLE 'TN01AB1234'           present
+                      PERSON 'फोन'                   not present                                
+                      LOCATION 'मोबाइल फोन'          not present                                
+NEG-HI-03   hi        PERSON 'संदेश'                 not present PERSON 'Ravi Kumar'            present
+                      LOCATION 'संदेश'               not present DATE '11 August'               present
+NEG-HI-04   hi        PERSON 'शिकायत'                not present PERSON 'Ravi Kumar'            present
+                      LOCATION 'शिकायत'              not present PHONE '+919840012345'          present
+NEG-TA-01   ta        PERSON 'செல்போன்'              not present PERSON 'Ravi Kumar'            present
+                      LOCATION 'செல்போன்'            not present PHONE '+919840012345'          present
+--------------------------------------------------------------------------------------------
+assertions held (5 cases, both halves of every assertion): 23/23
+
+============================================================================================
+REPORT 2 - ENTITY RESOLUTION TRAPS
+============================================================================================
+candidate band (human review): score >= 72.0   confident band (a HIGH proposal is what an officer is most likely to accept): score >= 88.0
+auto-merge is disabled in every case: the resolver proposes, a human decides.
+
+--- (A) SAME ENTITY: must be surfaced as a reviewable candidate ---
+a                    b                        score band         outcome   note
+--------------------------------------------------------------------------------------------
+Ravi Kumar           R. Kumar                  95.0 HIGH         shown     initial + surname; same vehicle, p
+Ravi Kumar           Ravi K.                   79.0 MEDIUM       shown     surname-initial form in the CASE-3
+Ravi Kumar           RAVI KUMAR                99.0 HIGH         shown     case difference from a records sys
+Ravi Kumar           Ravi  Kumar               80.0 MEDIUM       shown     double space from data entry; same
+Arun Selvam          A. Selvam                 73.0 MEDIUM       shown     same subscriber number in the CASE
+Meena Raghavan       M. Raghavan               73.0 MEDIUM       shown     witness contact number recorded wi
+Divya Nair           D. Nair                   73.0 MEDIUM       shown     counterparty account holder; same 
+Karthik Rajan        Karthik R.                81.2 MEDIUM       shown     field-log observer recorded two wa
+Karthik Rajan        K. Rajan                  83.0 MEDIUM       shown     initial-first form; same vehicle a
+Mohan Das            M. Das                    83.0 MEDIUM       shown     observed with the same vehicle at 
+Vignesh Anand        Vignesh A.                81.2 MEDIUM       shown     named with the same vehicle at T N
+Prakash Menon        P. Menon                  83.0 MEDIUM       shown     complainant recorded two ways; sam
+Anitha Rao           Anita Rao                 87.4 HIGH         shown     transliteration variant of the sam
+Sanjay Prabhu        Sanjay Prabu              78.0 MEDIUM       shown     transport-document name, translite
+Sanjay Prabhu        S. Prabhu                 83.0 MEDIUM       shown     initial form of the same transport
+Farhan Ali           F. Ali                    73.0 MEDIUM       shown     same contact number in the CASE-20
+Suresh Balan         S. Balan                  63.0 LOW          MISSED    account holder recorded two ways (
+
+--- (B) DIFFERENT ENTITIES: must never reach the confident band ---
+a                    b                        score band         outcome   note
+--------------------------------------------------------------------------------------------
+Ravi Kumar           Suresh Kumar              33.3 INSUFFICIENT safe      shared surname, different given na
+Ravi Kumar           Ravi Kumari               77.6 MEDIUM       safe      one-letter difference - a differen
+Ravi Kumar           Ravindra Kumar            63.7 LOW          safe      different given name though the sa
+R. Kumar             R. Kumari                 47.1 INSUFFICIENT safe      initials match but the surnames di
+Arun Selvam          Arun Selvamurthy          52.7 LOW          safe      different surname, shared phone re
+Mohan Das            Mohan Dasan               67.0 MEDIUM       safe      different surname - the same vehic
+Karthik Rajan        Karthik Rajendran         65.3 MEDIUM       safe      different surname, similar stem
+Divya Nair           Divya Nairan              57.5 LOW          safe      different surname
+Meena Raghavan       Meena Raghav              58.2 LOW          safe      truncated surname - insufficient t
+Suresh Balan         Suresh Balakrishnan       52.9 LOW          safe      different surname, shared stem
+Vignesh Anand        Vignesh Ananthan          63.4 LOW          safe      different surname
+Sanjay Prabhu        Sanjay Prabhakaran        60.7 LOW          safe      different surname
+S. Vasanthi          S. Bhuvaneswari           49.0 INSUFFICIENT safe      same initial, different people nam
+Prakash Menon        Prakash Menon             50.0 LOW          safe      SAME name but conflicting registra
+Ravi Kumar           R. Kumar                  43.0 INSUFFICIENT safe      name variant with NO corroborating
+Anitha Rao           Anita Rau                 52.1 LOW          safe      two transliteration differences in
+
+--- (C) IDENTIFIER OBJECTS: same object must fold to one graph key ---
+type     a                  b                  keys                   outcome   note
+--------------------------------------------------------------------------------------------
+PHONE    +919840012345      +91 98400 12345    same graph key         ok        spaced international format
+PHONE    +919840012345      9840012345         same graph key         ok        national format
+PHONE    +919840012345      0 98400 12345      same graph key         ok        trunk-prefixed format
+PHONE    +919840012345      +919840012346      different keys         ok        adjacent number
+PHONE    +919840012345      +919840099887      different keys         ok        different subscriber
+VEHICLE  TN01AB1234         TN 01 AB 1234      same graph key         ok        spaced registration
+VEHICLE  TN01AB1234         tn01ab1234         same graph key         ok        case difference
+VEHICLE  TN01AB1234         TN01AB1243         different keys         ok        transposed digits
+VEHICLE  TN01AB1234         TN01AB12345        different keys         ok        extra digit
+ACCOUNT  A/C 33901122       33901122           same graph key         ok        formatted vs bare
+ACCOUNT  A/C 33901122       AC 33901122        same graph key         ok        different prefix
+ACCOUNT  A/C 33901122       A/C 33901123       different keys         ok        adjacent account
+
+--------------------------------------------------------------------------------------------
+(A) same-entity pairs shown for review   : 16/17  (94.1% recall)
+(B) different-entity pairs kept apart    : 16/16  (100.0%)
+    FALSE MERGES (the number to protect) : 0
+    of the traps, 1 reach the candidate band and therefore need an explicit human rejection, never an automatic merge
+(C) identifier objects folded correctly  : 12/12  (100.0%)
+    --  Suresh Balan <-> S. Balan scored 63.0 (LOW) - below the review threshold: account holder recorded two ways (account + phone support only)
+
+============================================================================================
+PHASE 6 HARNESS: PASS   |  extraction micro-F1 sample size 85 mentions   |  negative assertions 23/23   |  false merges 0
+============================================================================================

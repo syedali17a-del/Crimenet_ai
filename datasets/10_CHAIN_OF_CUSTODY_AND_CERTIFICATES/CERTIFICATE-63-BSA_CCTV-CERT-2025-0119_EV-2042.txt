@@ -1,0 +1,52 @@
+================================================================================
+             SYNTHETIC DEMONSTRATION DATA - NOT A REAL CERTIFICATE              
+   Generated for the CrimeNet AI prototype. No real person, vehicle, account,   
+         case, police station, bank or telecom operator is represented.         
+         Not evidence. Not for operational, legal or investigative use.         
+================================================================================
+
+                       CERTIFICATE UNDER SECTION 63(4)(c)                       
+                    OF THE BHARATIYA SAKSHYA ADHINIYAM, 2023                    
+            (erstwhile Section 65B of the Indian Evidence Act, 1872)            
+
+--------------------------------------------------------------------------------
+  Certificate reference............ : CCTV/CERT/2025/0119
+  Subject of the certificate....... : CCTV still from camera CAM-CHN-CENTRAL-04
+  Related case..................... : CASE-202
+  System evidence reference........ : EV-2042
+  Date of production............... : 18/08/2025
+--------------------------------------------------------------------------------
+
+ I, the undersigned, being the person occupying a responsible official position
+ in relation to the operation of the computer system described below, do hereby
+ certify that:
+
+ 1. The electronic record produced is a copy of information contained in a
+    computer output produced by the following system in the ordinary course of
+    its activities:
+       City surveillance DVR, channel 04
+
+ 2. Throughout the material period the said computer was operating properly, or
+    if not, any respect in which it was not operating properly was not such as
+    to affect the electronic record or the accuracy of its contents.
+
+ 3. The information contained in the electronic record reproduces or is derived
+    from information supplied to the computer in the ordinary course of the said
+    activities.
+
+ 4. The hash value of the produced electronic record is recorded below and may
+    be used to verify that the record has not been altered after production:
+       SHA-256 : <computed at export time - see DATASET_MANIFEST.csv>
+
+  Name and designation............. : Control Room In-charge, City Surveillance (synthetic)
+  Signature........................ : /s/ (synthetic)
+
+ NOTE: This is a SYNTHETIC specimen certificate created to demonstrate the
+ chain-of-custody and hash-verification workflow of the CrimeNet AI prototype.
+ It has no legal effect whatsoever.
+
+--------------------------------------------------------------------------------
+ Document reference : CCTV/CERT/2025/0119
+ Ingested into CrimeNet AI as : EV-2042   (Case CASE-202)
+ Classification : SYNTHETIC DEMONSTRATION DATA
+--------------------------------------------------------------------------------

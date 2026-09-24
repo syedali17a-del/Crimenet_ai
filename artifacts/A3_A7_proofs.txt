@@ -1,0 +1,139 @@
+====================================================================================================
+A3 — ANOMALY ENDPOINT: TWO LABELLED DETECTORS
+====================================================================================================
+detector_count: 2
+  - {'detector': 'isolation_forest_transaction_burst', 'detector_kind': 'classical_ml', 'question': 'Does an account behave abnormally against its own transaction baseline?', 'method': 'IsolationForest (scikit-learn)', 'findings': 1}
+  - {'detector': 'shared_identifier_cross_case', 'detector_kind': 'rule_based', 'question': 'Flags an identifier (phone, vehicle, account, device) that appears in the evidence of 2+ cases that have no other declared connection.', 'method': 'rule matched', 'findings': 1}
+
+[isolation_forest_transaction_burst]  (plain-language reason)
+  detector: isolation_forest_transaction_burst | kind: classical_ml | model: IsolationForest (scikit-learn)
+  account : ACC-001 | case: CASE-305 | window: 2025-08-22 14:00:00+00:00
+  observed: {"transactions_in_hour": 50, "total_amount": 1316081.59, "distinct_counterparties": 2}
+  baseline: {"mean_transactions_per_day": 11.6, "description": "Mean daily transaction volume for this account across available evidence."}
+  score   : 0.2231 | evidence: ['EV-3070']
+  reason  : Behavioural anomaly detected relative to the account's own baseline. An anomaly is not an indication of criminal activity and requires corroboration and investigator review.
+
+[shared_identifier_cross_case]
+  detector: shared_identifier_cross_case | kind: rule_based
+  reason  : vehicle registration TN01AB1234 appears in the evidence for CASE-202 and CASE-305 with no other link between these cases: no shared person or alias, and no second identifier. The only other things these cases have in common are Location consistency: CHENNAI PORT; Temporal relationship: 3 day(s) between nearest events, neither of which this product treats as a connection (co-location is not proof of a meeting, and temporal proximity alone is not an association signal).
+  evidence: ['EV-1024', 'EV-2041', 'EV-3071']
+
+====================================================================================================
+A4 — AI SAFETY POSTURE ENDPOINT
+====================================================================================================
+{
+  "generative_model_in_evidence_path": false,
+  "reasoning": "Entity extraction, resolution, network/anomaly analysis and hypothesis generation are all rule-based or classical ML (spaCy NER, RapidFuzz, NetworkX, IsolationForest). No LLM or generative model receives untrusted document text with the ability to write to the graph, so there is no hallucination surface and no prompt-injection surface in the evidence path.",
+  "verified_by": "backend/scripts/check_no_llm_in_path.py",
+  "what_that_means": {
+    "untrusted_text_never_reaches_a_generative_model": true,
+    "no_model_can_write_to_the_graph": true,
+    "every_extracted_entity_carries_its_method": "entity_agent records the methods (rule / NER / vocabulary / structural hint) on each extracted entity, so a reviewer sees why it was proposed.",
+    "no_generated_text_in_the_ui": "Interpretation strings are templates filled from computed values, not generated prose."
+  },
+  "model_inventory": {
+    "statistical_ner": "spaCy en_core_web_sm (en_core_web_sm, statistical NER for English text; a token-classification Transformers model is used only if local weights are present, and it is deliberately not required)",
+    "string_matching": "RapidFuzz (deterministic edit-distance ratios)",
+    "graph": "NetworkX (degree/betweenness centrality, Louvain communities)",
+    "anomaly": "scikit-learn IsolationForest (classical ML, feature space documented in app/analytics/anomaly.py)",
+    "generative": "none - no openai / anthropic / langchain / LLM client is imported anywhere in app/agents, app/analytics or app/api"
+  },
+  "residual_risks_we_do_not_claim_to_have_solved": [
+    "Extraction is imperfect: a false positive is possible and is why every extracted entity carries a confidence and a method string, and why nothing is auto-merged.",
+    "Uploaded documents can be wrong or poisoned at the source; source_trust records how the document arrived and corroboration weighs low-trust sources less.",
+    "A rule-based pipeline can be wrong in a consistent way - the evaluation harness (scripts/eval_extraction.py) measures that against labelled ground truth, including negative cases that must NOT be extracted."
+  ],
+  "verified_at_runtime_by": "scripts/check_no_llm_in_path.py (static check, non-zero exit on a generative import in the evidence path)",
+  "checked_by": "SUP-1100",
+  "checked_at": "2026-09-22T13:24:15Z"
+}
+
+====================================================================================================
+A5 — READ-ACCESS AUDIT (EVIDENCE_VIEWED)
+====================================================================================================
+EVIDENCE_VIEWED records before this demo: 0 -> after opening one record: 1
+newest record: {
+  "audit_id": "AUD-00010",
+  "timestamp": "2026-09-22T13:24:15Z",
+  "user_id": "SUP-1100",
+  "role": "SUPERVISOR",
+  "action": "EVIDENCE_VIEWED",
+  "case_id": "CASE-101",
+  "object_id": "EV-1024",
+  "status": "SUCCESS",
+  "detail": "Opened evidence content (FIR, 577 characters) for case CASE-101.",
+  "hash": "f1c8c874b3d856f4bfc34af54ff1e98d0e8ae8464cb579013a604123617a055a",
+  "prev_hash": "520603f5eda831070b7685bc72421afab2dfb5ed8dd807c30f575deeff34b585",
+  "chain_hash": "fad9a45053f14e2f64168f3f900cf7a9315dcacd0f23ded7a8f78ffbb5e8df38"
+}
+
+====================================================================================================
+A6 — PII MASKING + AUDITED REVEAL
+====================================================================================================
+nodes with identifier_masked: 9 / 42
+  PHN-001      PHONE    label=+91 98400 ••••5          reveal_endpoint=/api/entities/PHN-001/reveal
+  PHN-002      PHONE    label=+91 98400 ••••7          reveal_endpoint=/api/entities/PHN-002/reveal
+  PHN-003      PHONE    label=+91 97900 ••••3          reveal_endpoint=/api/entities/PHN-003/reveal
+  DEV-001      DEVICE   label=IMEI ••••3809            reveal_endpoint=/api/entities/DEV-001/reveal
+graph pii_policy: PHONE / ACCOUNT / DEVICE labels are masked; GET /api/entities/{entity_id}/reveal returns the full value and is audited.
+
+reveal: {
+  "entity_id": "PHN-001",
+  "entity_type": "PHONE",
+  "masked": true,
+  "value": "+919840012345",
+  "normalized": "+919840012345",
+  "masked_form": "+91 98400 \u2022\u2022\u2022\u20225",
+  "at_rest": {
+    "field": "msisdn_encrypted",
+    "encrypted": true,
+    "note": "The stored copy is AES-256-GCM ciphertext; it is decrypted only for authorized access, and every access is audited."
+  },
+  "audited": true,
+  "audit_action": "IDENTIFIER_REVEALED",
+  "revealed_by": "SUP-1100",
+  "revealed_at": "2026-09-22T13:24:15Z",
+  "policy_note": "Identifiers are masked by default. This reveal is recorded in the append-only audit trail and the hash-chained ledger."
+}
+
+IDENTIFIER_REVEALED audit record  : {
+  "audit_id": "AUD-00007",
+  "timestamp": "2026-09-22T13:23:18Z",
+  "user_id": "SUP-1100",
+  "role": "SUPERVISOR",
+  "action": "IDENTIFIER_REVEALED",
+  "case_id": "CASE-101",
+  "object_id": "PHN-001",
+  "status": "SUCCESS",
+  "detail": "Unmasked PHONE identifier +919840012345 (masked form +91 98400 \u2022\u2022\u2022\u20225).",
+  "hash": "0a96e025a15c1bbb604a6bdefb08869ad76b6aea668760a663d52dd65d824984",
+  "prev_hash": "0349dd0b2735e9ed724788704dce506772f98e14aa27fe2e7427aa29fc9d4826",
+  "chain_hash": "28e40e7f127e4162f06fa116c3150b3a451f58a3d2ced4150af94bd4ee7951c7"
+}
+
+====================================================================================================
+A7 — SOURCE-TRUST WEIGHTING
+====================================================================================================
+registered: EV-5121 source_trust = EXTERNAL_SUBMISSION weight = 0.35
+explanation: Declared as arriving from outside the console (partner feed, public or third-party submission).
+
+2 x OFFICER_UPLOAD          (EV-1024 + EV-1025)
+   weighted_support     : 2.0
+   independent_sources  : 2
+   support_level_reachable: HIGH
+   sources              : [('Police Report', 'OFFICER_UPLOAD', 1.0), ('Telecom Record (synthetic)', 'OFFICER_UPLOAD', 1.0)]
+   explanation          : weighted support 2.00 from 2 independent sources reaches the confident band
+
+OFFICER_UPLOAD + EXTERNAL   (EV-1024 + EV-5121)
+   weighted_support     : 1.35
+   independent_sources  : 2
+   support_level_reachable: MEDIUM
+   sources              : [('Police Report', 'OFFICER_UPLOAD', 1.0), ('Partner feed', 'EXTERNAL_SUBMISSION', 0.35)]
+   explanation          : weighted support 1.35 clears the reviewable-candidate band but not the confident band
+
+EXTERNAL_SUBMISSION only    (EV-5121)
+   weighted_support     : 0.35
+   independent_sources  : 1
+   support_level_reachable: LOW
+   sources              : [('Partner feed', 'EXTERNAL_SUBMISSION', 0.35)]
+   explanation          : weighted support 0.35 from 1 source(s) stays below the reviewable-candidate band

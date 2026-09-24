@@ -1,0 +1,19 @@
+=== HINDI  (the reported false positive)   evidence_id=EV-5125   case=CASE-101
+    counts: {'DATE': 1, 'LOCATION': 1, 'PERSON': 1, 'PHONE': 1, 'VEHICLE': 1}
+      DATE        surface='12 अगस्त'               normalized='12 August'            conf=0.85 methods=['indic-date-vocabulary']
+      LOCATION    surface='चेन्नई सेंट्रल'         normalized='Chennai Central'      conf=0.82 methods=['indic-transliteration+vocabulary']
+      PERSON      surface='रवि कुमार'              normalized='Ravi Kumar'           conf=0.82 methods=['indic-transliteration+vocabulary']
+      PHONE       surface='+919840012345'          normalized='+919840012345'        conf=0.9 methods=['regex']
+      VEHICLE     surface='TN01AB1234'             normalized='TN01AB1234'           conf=0.98 methods=['regex', 'gazetteer']
+    ASSERT any entity named 'फोन' / 'மொபைல்' / 'செல்போன்' : False
+    ASSERT PERSON surfaces : ['रवि कुमार']
+
+=== TAMIL  (regression guard)   evidence_id=EV-5126   case=CASE-101
+    counts: {'DATE': 1, 'LOCATION': 1, 'PERSON': 1, 'VEHICLE': 1}
+      DATE        surface='12 ஆகஸ்ட்'              normalized='12 August'            conf=0.85 methods=['indic-date-vocabulary']
+      LOCATION    surface='சென்னை சென்ட்ரலில்'     normalized='Chennai Central'      conf=0.82 methods=['indic-transliteration+vocabulary']
+      PERSON      surface='ரவி குமார்'             normalized='Ravi Kumar'           conf=0.82 methods=['indic-transliteration+vocabulary']
+      VEHICLE     surface='TN01AB1234'             normalized='TN01AB1234'           conf=0.98 methods=['regex', 'gazetteer']
+    ASSERT any entity named 'फोन' / 'மொபைல்' / 'செல்போன்' : False
+    ASSERT PERSON surfaces : ['ரவி குமார்']
+

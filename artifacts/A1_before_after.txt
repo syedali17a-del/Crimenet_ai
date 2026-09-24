@@ -1,0 +1,40 @@
+================================================================================================
+HINDI - the sentence in the report
+================================================================================================
+--- BEFORE (stoplist disabled = the code as it was)
+   DATE        '12 अगस्त'               -> '12 August'          conf=0.85  ['indic-date-vocabulary']
+   LOCATION    'चेन्नई सेंट्रल'         -> 'Chennai Central'    conf=0.82  ['indic-transliteration+vocabulary']
+   PERSON      'फोन'                    -> 'Phona'              conf=0.55  ['indic-structural (sentence-initial subject)']
+   PERSON      'रवि कुमार'              -> 'Ravi Kumar'         conf=0.82  ['indic-transliteration+vocabulary']
+   PHONE       '+919840012345'          -> '+919840012345'      conf=0.98  ['regex', 'gazetteer']
+   VEHICLE     'TN01AB1234'             -> 'TN01AB1234'         conf=0.98  ['regex', 'gazetteer']
++++ AFTER  (current code)
+   DATE        '12 अगस्त'               -> '12 August'          conf=0.85  ['indic-date-vocabulary']
+   LOCATION    'चेन्नई सेंट्रल'         -> 'Chennai Central'    conf=0.82  ['indic-transliteration+vocabulary']
+   PERSON      'रवि कुमार'              -> 'Ravi Kumar'         conf=0.82  ['indic-transliteration+vocabulary']
+   PHONE       '+919840012345'          -> '+919840012345'      conf=0.98  ['regex', 'gazetteer']
+   VEHICLE     'TN01AB1234'             -> 'TN01AB1234'         conf=0.98  ['regex', 'gazetteer']
+--- unified diff
+   --- before
+   +++ after
+   @@ -2,3 +2,2 @@
+       LOCATION    'चेन्नई सेंट्रल'         -> 'Chennai Central'    conf=0.82  ['indic-transliteration+vocabulary']
+   -   PERSON      'फोन'                    -> 'Phona'              conf=0.55  ['indic-structural (sentence-initial subject)']
+       PERSON      'रवि कुमार'              -> 'Ravi Kumar'         conf=0.82  ['indic-transliteration+vocabulary']
+
+================================================================================================
+TAMIL - the sentence fixed in the previous pass
+================================================================================================
+--- BEFORE (stoplist disabled = the code as it was)
+   DATE        '12 ஆகஸ்ட்'              -> '12 August'          conf=0.85  ['indic-date-vocabulary']
+   LOCATION    'சென்னை சென்ட்ரலில்'     -> 'Chennai Central'    conf=0.82  ['indic-transliteration+vocabulary']
+   PERSON      'ரவி குமார்'             -> 'Ravi Kumar'         conf=0.82  ['indic-transliteration+vocabulary']
+   VEHICLE     'TN01AB1234'             -> 'TN01AB1234'         conf=0.98  ['regex', 'gazetteer']
++++ AFTER  (current code)
+   DATE        '12 ஆகஸ்ட்'              -> '12 August'          conf=0.85  ['indic-date-vocabulary']
+   LOCATION    'சென்னை சென்ட்ரலில்'     -> 'Chennai Central'    conf=0.82  ['indic-transliteration+vocabulary']
+   PERSON      'ரவி குமார்'             -> 'Ravi Kumar'         conf=0.82  ['indic-transliteration+vocabulary']
+   VEHICLE     'TN01AB1234'             -> 'TN01AB1234'         conf=0.98  ['regex', 'gazetteer']
+--- unified diff
+   (no change)
+

@@ -1,0 +1,66 @@
+
+====================================================================================================
+A6 — MASKED IDENTIFIER LABELS + AUDITED REVEAL   (policy (a))
+====================================================================================================
+nodes with identifier_masked: 9 / 42
+  PHN-001   PHONE    label=+91 98400 ••••5        reveal_endpoint=/api/entities/PHN-001/reveal
+  PHN-002   PHONE    label=+91 98400 ••••7        reveal_endpoint=/api/entities/PHN-002/reveal
+  PHN-003   PHONE    label=+91 97900 ••••3        reveal_endpoint=/api/entities/PHN-003/reveal
+  DEV-001   DEVICE   label=IMEI ••••3809          reveal_endpoint=/api/entities/DEV-001/reveal
+  PHN-004   PHONE    label=+91 95667 ••••9        reveal_endpoint=/api/entities/PHN-004/reveal
+  ACC-001   ACCOUNT  label=A/C ••••1122           reveal_endpoint=/api/entities/ACC-001/reveal
+  ACC-002   ACCOUNT  label=A/C ••••0987           reveal_endpoint=/api/entities/ACC-002/reveal
+  DEV-002   DEVICE   label=IMEI ••••7518          reveal_endpoint=/api/entities/DEV-002/reveal
+  ACC-003   ACCOUNT  label=A/C ••••0034           reveal_endpoint=/api/entities/ACC-003/reveal
+
+graph pii_policy: PHONE / ACCOUNT / DEVICE labels are masked; GET /api/entities/{entity_id}/reveal returns the full value and is audited.
+
+reveal (GET /api/entities/PHN-001/reveal):
+{
+  "entity_id": "PHN-001",
+  "entity_type": "PHONE",
+  "masked": true,
+  "value": "+919840012345",
+  "normalized": "+919840012345",
+  "masked_form": "+91 98400 ••••5",
+  "at_rest": {
+    "field": "msisdn_encrypted",
+    "encrypted": true,
+    "note": "The stored copy is AES-256-GCM ciphertext; it is decrypted only for authorized access, and every access is audited."
+  },
+  "audited": true,
+  "audit_action": "IDENTIFIER_REVEALED",
+  "revealed_by": "SUP-1100",
+  "revealed_at": "2026-09-22T16:24:09Z",
+  "policy_note": "Identifiers are masked by default. This reveal is recorded in the append-only audit trail and the hash-chained ledger."
+}
+
+newest IDENTIFIER_REVEALED audit record:
+{
+  "audit_id": "AUD-00010",
+  "timestamp": "2026-09-22T16:24:09Z",
+  "user_id": "SUP-1100",
+  "role": "SUPERVISOR",
+  "action": "IDENTIFIER_REVEALED",
+  "case_id": "CASE-101",
+  "object_id": "PHN-001",
+  "status": "SUCCESS",
+  "detail": "Unmasked PHONE identifier +919840012345 (masked form +91 98400 ••••5).",
+  "hash": "c173c76f855cc401dde045b055bac1fd218744a1c4b1da79baa04988baacdc23",
+  "prev_hash": "4c752ca68e437cff909c841e1b1f5c069732147d56cc1660aa5819baf3eacc1d",
+  "chain_hash": "8e06778ae44cf89898a1609a576a5058365cdd5b105aab52815e1f48b19c391c"
+}
+
+leak scan — raw digits 9840012345 in every entity-bearing response:
+  clean GET  /api/graph                                    raw occurrences: 0
+  clean GET  /api/entities?entity_type=PHONE               raw occurrences: 0
+  clean GET  /api/entities/PHN-001                         raw occurrences: 0
+  clean POST /api/analysis/network                         raw occurrences: 0
+  clean POST /api/analysis/cross-case                      raw occurrences: 0
+  clean POST /api/analysis/corroboration                   raw occurrences: 0
+  clean GET  /api/timeline                                 raw occurrences: 0
+  clean GET  /api/map                                      raw occurrences: 0
+  clean GET  /api/search?q=9840012345                      raw occurrences: 0
+  clean POST /api/analysis/entity-resolution               raw occurrences: 0
+
+RESULT: PASS - no endpoint leaks the raw identifier

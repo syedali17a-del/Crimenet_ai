@@ -1,0 +1,38 @@
+================================================================================
+        SYNTHETIC DEMONSTRATION DATA - NOT A REAL CHAIN OF CUSTODY FORM         
+   Generated for the CrimeNet AI prototype. No real person, vehicle, account,   
+         case, police station, bank or telecom operator is represented.         
+         Not evidence. Not for operational, legal or investigative use.         
+================================================================================
+
+                 CHAIN OF CUSTODY / EVIDENCE MOVEMENT REGISTER                  
+
+--------------------------------------------------------------------------------
+  System evidence reference........ : EV-1025
+  Case............................. : CASE-101 - Chennai Vehicle Theft Network
+  Evidence type.................... : CDR
+  Source........................... : Telecom Record (synthetic)
+  Recorded timestamp............... : 2025-08-12T11:05:00Z
+  Registered by.................... : ANL-3310
+  Verification status in system.... : UNVERIFIED
+--------------------------------------------------------------------------------
+
+ Sl.  Date         Movement / Action                Custodian        Remarks
+ ------------------------------------------------------------------------------
+ 1    2025-08-12   Seized / received at Police Station Station House Officer
+      Remarks: Original retained in Malkhana
+ 2    2025-08-12   Copy produced for analysis       ANL-3310        
+      Remarks: Working copy created; original untouched
+ 3    2025-08-12   Registered in CrimeNet AI        ANL-3310        
+      Remarks: SHA-256 computed at registration and sealed in ledger
+
+ DECLARATION
+ The original record has not been modified by the CrimeNet AI platform. The
+ platform stores an immutable copy, records its SHA-256 digest at the moment of
+ registration and seals that digest in an append-only hash-chained ledger.
+
+--------------------------------------------------------------------------------
+ Document reference : COC/EV-1025 (synthetic)
+ Ingested into CrimeNet AI as : EV-1025   (Case CASE-101)
+ Classification : SYNTHETIC DEMONSTRATION DATA
+--------------------------------------------------------------------------------

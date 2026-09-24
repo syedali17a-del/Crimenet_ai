@@ -1,0 +1,13 @@
+  created CASE-901: CASE-901
+  created CASE-902: CASE-902
+  CASE-901 <- EV-5122  source='External partner feed CASE-901'  source_trust=EXTERNAL_SUBMISSION
+  CASE-902 <- EV-5123  source='External partner feed CASE-902'  source_trust=EXTERNAL_SUBMISSION
+
+  LEAD: LEAD-XC-901-902 ['CASE-901', 'CASE-902']
+    status=PARTIALLY CORROBORATED - FURTHER EVIDENCE REQUIRED
+    support_level=LOW   raw (correlation engine)=HIGH
+    capped_by_source_trust=True
+    weighted_support=0.7  independent_sources=2
+    cap reason: evidence weighted 0.70 (needs 2.00 from 2 independent sources for the confident band)
+    sources: [('External partner feed CASE-901', 'EXTERNAL_SUBMISSION', 0.35), ('External partner feed CASE-902', 'EXTERNAL_SUBMISSION', 0.35)]
+    methods: [('Cross-case correlation', True), ('Temporal analysis', False), ('Network analysis', False)]

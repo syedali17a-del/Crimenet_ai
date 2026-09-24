@@ -1,0 +1,37 @@
+=== HINDI   evidence_id=EV-5127   case=CASE-101
+    POST /api/evidence -> EV-5127   POST /api/evidence/EV-5127/process -> RELATIONSHIPS_CANDIDATE
+    extraction counts: {'DATE': 1, 'LOCATION': 1, 'PERSON': 1, 'PHONE': 1, 'VEHICLE': 1}
+      DATE       surface='12 अगस्त'                         normalized='12 August'              conf=0.85  ['indic-date-vocabulary']
+      LOCATION   surface='चेन्नई सेंट्रल'                   normalized='Chennai Central'        conf=0.82  ['indic-transliteration+vocabulary']
+      PERSON     surface='रवि कुमार'                        normalized='Ravi Kumar'             conf=0.82  ['indic-transliteration+vocabulary']
+      PHONE      surface='+919840012345'                    normalized='+919840012345'          conf=0.9  ['regex']
+      VEHICLE    surface='TN01AB1234'                       normalized='TN01AB1234'             conf=0.98  ['regex', 'gazetteer']
+    ASSERT 'फोन' as PERSON/any type        : False   (must be False)
+    ASSERT PERSON surfaces                  : ['रवि कुमार']
+
+=== TAMIL   evidence_id=EV-5128   case=CASE-101
+    POST /api/evidence -> EV-5128   POST /api/evidence/EV-5128/process -> RELATIONSHIPS_CANDIDATE
+    extraction counts: {'DATE': 1, 'LOCATION': 1, 'PERSON': 1, 'VEHICLE': 1}
+      DATE       surface='12 ஆகஸ்ட்'                        normalized='12 August'              conf=0.85  ['indic-date-vocabulary']
+      LOCATION   surface='சென்னை சென்ட்ரலில்'               normalized='Chennai Central'        conf=0.82  ['indic-transliteration+vocabulary']
+      PERSON     surface='ரவி குமார்'                       normalized='Ravi Kumar'             conf=0.82  ['indic-transliteration+vocabulary']
+      VEHICLE    surface='TN01AB1234'                       normalized='TN01AB1234'             conf=0.98  ['regex', 'gazetteer']
+    ASSERT 'फोन' as PERSON/any type        : False   (must be False)
+    ASSERT PERSON surfaces                  : ['ரவி குமார்']
+
+====================================================================================================
+SIDE-BY-SIDE (rendered as a unified diff of the extracted-set, both languages)
+====================================================================================================
+--- HINDI  (the reported false positive)
++++ TAMIL  (the regression guard)
+@@ -1,5 +1,4 @@
+-   DATE       '12 अगस्त'                         -> '12 August'            conf=0.85
+-   LOCATION   'चेन्नई सेंट्रल'                   -> 'Chennai Central'      conf=0.82
+-   PERSON     'रवि कुमार'                        -> 'Ravi Kumar'           conf=0.82
+-   PHONE      '+919840012345'                    -> '+919840012345'        conf=0.9
++   DATE       '12 ஆகஸ்ட்'                        -> '12 August'            conf=0.85
++   LOCATION   'சென்னை சென்ட்ரலில்'               -> 'Chennai Central'      conf=0.82
++   PERSON     'ரவி குமார்'                       -> 'Ravi Kumar'           conf=0.82
+    VEHICLE    'TN01AB1234'                       -> 'TN01AB1234'           conf=0.98
+
+RESULT: PASS — 'फोन' extracted as any type: False; Tamil PERSON 'ரவி குமார்' -> Ravi Kumar: True

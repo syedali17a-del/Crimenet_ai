@@ -1,0 +1,38 @@
+
+====================================================================================================
+A7 — SOURCE-TRUST WEIGHTING   (POST /api/analysis/evidence-support / corroboration)
+====================================================================================================
+the ladder (POST /api/analysis/evidence-support):
+
+  2 x OFFICER_UPLOAD                     (EV-1024 + EV-1025)
+     weighted_support       : 2.0
+     independent_sources    : 2
+     support_level_reachable: HIGH
+     sources                : [('Police Report', 'OFFICER_UPLOAD', 1.0), ('Telecom Record (synthetic)', 'OFFICER_UPLOAD', 1.0)]
+     explanation            : weighted support 2.00 from 2 independent sources reaches the confident band
+
+  1 x OFFICER_UPLOAD + 1 x EXTERNAL_SUBMISSION (EV-1024 + EV-5122)
+     weighted_support       : 1.35
+     independent_sources    : 2
+     support_level_reachable: MEDIUM
+     sources                : [('Police Report', 'OFFICER_UPLOAD', 1.0), ('External partner feed (A7 ladder)', 'EXTERNAL_SUBMISSION', 0.35)]
+     explanation            : weighted support 1.35 clears the reviewable-candidate band but not the confident band
+
+controlled A/B — identical document, identical candidate relationship;
+only the DECLARED source trust of the two uploads differs:
+
+  [EXTERNAL] CASE-1291 <- EV-5123  source_trust=EXTERNAL_SUBMISSION
+  [EXTERNAL] CASE-1292 <- EV-5124  source_trust=EXTERNAL_SUBMISSION
+    document shared by both cases: Naveen Sundaram was observed at the scene with vehicle TN52YB1549 on 2025-09-01; contact +919773556117 was recorded in the same note.
+    lead LEAD-XC-1291-1292: status=PARTIALLY CORROBORATED - FURTHER EVIDENCE REQUIRED
+    support_level=LOW  raw=MEDIUM  capped_by_source_trust=True  weighted=0.7  sources=2
+    cap reason: evidence weighted 0.70 (needs 2.00 from 2 independent sources for the confident band)
+    weights used: {'OFFICER_UPLOAD': 1.0, 'BULK_IMPORT': 0.6, 'EXTERNAL_SUBMISSION': 0.35}
+
+  [OFFICER] CASE-7781 <- EV-5125  source_trust=OFFICER_UPLOAD
+  [OFFICER] CASE-7782 <- EV-5126  source_trust=OFFICER_UPLOAD
+    document shared by both cases: Karthik Prakash was observed at the scene with vehicle TN19CT3873 on 2025-09-01; contact +919760620300 was recorded in the same note.
+    lead LEAD-XC-7781-7782: status=CORROBORATED ANALYTICAL LEAD
+    support_level=MEDIUM  raw=MEDIUM  capped_by_source_trust=False  weighted=2.0  sources=2
+    weights used: {'OFFICER_UPLOAD': 1.0, 'BULK_IMPORT': 0.6, 'EXTERNAL_SUBMISSION': 0.35}
+

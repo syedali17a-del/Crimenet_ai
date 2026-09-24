@@ -1,0 +1,109 @@
+
+[1m1. DESIGN TOKENS — defined once, in index.css[0m
+  PASS  token --color-bg: #F4F7FC
+  PASS  token --color-surface: rgba(255, 255, 255, 0.65)
+  PASS  token --color-surface-solid: #FFFFFF
+  PASS  token --color-border: rgba(15, 42, 89, 0.10)
+  PASS  token --color-primary: #1450C4
+  PASS  token --color-primary-deep: #0B2F73
+  PASS  token --color-primary-soft: #E8F0FE
+  PASS  token --color-accent: #2FA7DB
+  PASS  token --color-success: #1E8E5A
+  PASS  token --color-warning: #B8791A
+  PASS  token --color-danger: #C4341F
+  PASS  token --color-text: #101828
+  PASS  token --color-text-muted: #5B6B85
+
+[1m2. GLASS SPEC — exact blur / border / radius / shadow[0m
+  PASS  backdrop-filter: blur(16px) saturate(140%)
+  PASS  -webkit-backdrop-filter present (Safari)
+  PASS  border-radius: 16px on panels
+  PASS  shadow 0 8px 32px rgba(15,42,89,0.08)
+
+[1m3. GLASS PLACEMENT — allowed only where the brief allows it[0m
+  PASS  graph canvas panel is SOLID (NetworkIntelligence)
+  PASS  Dashboard KPI cards are glass
+  PASS  evidence provenance strip is glass
+  PASS  every <Card> in Security is solid
+  PASS  every <Card> in Audit is solid
+  PASS  Security/Audit summary tiles are solid too
+  PASS  no GlassCard/glass used on any <table> wrapper
+
+[1m4. TYPOGRAPHY[0m
+  PASS  page title 28px / 600 / primary-deep
+  PASS  section header 16px / 600 / uppercase / 0.04em / muted
+  PASS  body 14-15px / 1.5
+  PASS  tabular-nums for data
+  PASS  monospace for hashes / evidence IDs
+  PASS  no second webfont / @import added
+  PASS  mono used on evidence ID and hash in Evidence page
+
+[1m5. SPACING & LAYOUT[0m
+  PASS  max content width 1400px
+  PASS  24px page padding (px-6)
+  PASS  16px gap between cards (gap-4)
+  PASS  left nav is fixed
+  PASS  nav is glass
+  PASS  nav scrolls independently
+
+[1m6. ELEVATION / INTERACTION[0m
+  PASS  one hover lift: translateY(-2px) + shadow, 150ms
+  PASS  2px focus ring, 2px offset, on every interactive element
+
+[1m7. STATUS / CANDIDATE VISUAL LANGUAGE (the safety claim)[0m
+  PASS  VERIFIED = solid success, filled
+  PASS  CANDIDATE = outlined warning (transparent bg, never filled)
+  PASS  REJECTED = outlined dashed danger
+  PASS  REJECTED claim text struck through
+  PASS  INSUFFICIENT = dashed muted
+  PASS  HIGH support is the filled badge
+  PASS  MEDIUM/candidate tone is the outlined amber
+  PASS  candidate pill carries a clock icon, not a check
+
+[1m8. EMPTY / LOADING / ERROR STATES ON EVERY PAGE[0m
+  PASS  Login has a designed state (no data fetch)
+  PASS  Dashboard has empty + loading + error states
+  PASS  Cases has empty + loading + error states
+  PASS  CaseDetails has empty + loading + error states
+  PASS  Evidence has empty + loading + error states
+  PASS  EntityResolution has empty + loading + error states
+  PASS  CrossCase has empty + loading + error states
+  PASS  NetworkIntelligence has empty + loading + error states
+  PASS  MapIntelligence has empty + loading + error states
+  PASS  Timeline has empty + loading + error states
+  PASS  Hypotheses has empty + loading + error states
+  PASS  InformationGaps has empty + loading + error states
+  PASS  NextBestAction has empty + loading + error states
+  PASS  Security has empty + loading + error states
+  PASS  Audit has empty + loading + error states
+  PASS  Workflow has a designed empty state
+  PASS  LanguageSelect renders a static, always-populated list (no data fetch => no empty state possible)
+  PASS  shimmer skeleton (not a spinner in a void)
+
+[1m9. PAGE-SPECIFIC NOTES[0m
+  PASS  Login keeps the SYNTHETIC DEMONSTRATION DATA disclosure
+  PASS  Login keeps the demo-account disclosure
+  PASS  Login has the faint network line pattern
+  PASS  Security has dense tables in solid surfaces
+  PASS  Audit has dense tables in solid surfaces
+  PASS  NetworkIntelligence drawer shows the A2 explanation prominently
+
+[1m9b. FIXES MADE IN THIS PASS[0m
+  PASS  Cases: case cards are solid, not glass (they carry body copy)
+  PASS  Cases: a failed list fetch renders an error state with retry
+  PASS  AppContext: casesError is part of the provider value
+  PASS  CrossCase has a designed EmptyState
+  PASS  EntityResolution has a designed EmptyState
+  PASS  Hypotheses has a designed EmptyState
+  PASS  InformationGaps has a designed EmptyState
+  PASS  NextBestAction has a designed EmptyState
+  PASS  MapIntelligence has a designed EmptyState
+  PASS  Timeline has a designed EmptyState
+
+[1m10. CONSTRAINTS[0m
+  PASS  no new frontend dependencies added
+  PASS  safety copy: graph safety_note still rendered
+  PASS  safety copy: 'not evidence of leadership' wording preserved server-side
+  PASS  candidate-vs-verified copy present in UI
+
+[1mPART B SPEC AUDIT: 85 passed, 0 failed[0m

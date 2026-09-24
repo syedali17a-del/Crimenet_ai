@@ -1,0 +1,117 @@
+================================================================================
+       SYNTHETIC DEMONSTRATION DATA - NOT A REAL FIRST INFORMATION REPORT       
+   Generated for the CrimeNet AI prototype. No real person, vehicle, account,   
+         case, police station, bank or telecom operator is represented.         
+         Not evidence. Not for operational, legal or investigative use.         
+================================================================================
+
+                 FORM IF1  (INTEGRATED INVESTIGATION FORM - 1)                  
+                            FIRST INFORMATION REPORT                            
+       (Under Section 173 of the Bharatiya Nagarik Suraksha Sanhita, 2023       
+        - erstwhile Section 154 of the Code of Criminal Procedure, 1973)        
+
+--------------------------------------------------------------------------------
+ 1. District : Greater Chennai (synthetic)      P.S. : Chennai Central (synthetic)
+    Year     : 2025            FIR No. : 0412/2025            Date : 10/08/2025
+--------------------------------------------------------------------------------
+ 2. Act(s) and Section(s)
+    (i)   Bharatiya Nyaya Sanhita, 2023 .... Sections 303(2), 317(2) r/w 3(5)
+          [erstwhile Indian Penal Code, 1860 - Sections 379, 411 r/w 34]
+    (ii)  Other Acts and Sections .......... Motor Vehicles Act, 1988 - s.177
+--------------------------------------------------------------------------------
+ 3. (a) Occurrence of offence : Day  SUNDAY
+        Date From 10/08/2025   Date To 10/08/2025
+        Time From 09:30 hrs    Time To 09:50 hrs
+    (b) Information received at P.S. : Date 10/08/2025    Time 18:20 hrs
+    (c) General Diary Reference      : Entry No. 041/2025  Time 18:26 hrs
+--------------------------------------------------------------------------------
+ 4. Type of Information .................. WRITTEN (complaint petition)
+--------------------------------------------------------------------------------
+ 5. Place of Occurrence
+    (a) Direction and distance from P.S. : NORTH-EAST, 0.8 km   Beat No. 04
+    (b) Address : Public parking apron, Chennai Central approach road,
+                  Chennai - 600 003 (synthetic locality reference LOC-001)
+    (c) Outside P.S. limits ? ........... NO
+--------------------------------------------------------------------------------
+ 6. Complainant / Informant
+ (a) Name.......................... : Tmt. S. Vasanthi
+ (b) Husband's Name................ : Thiru M. Ganesan
+ (c) Date / Year of Birth.......... : 1981
+ (d) Nationality................... : Indian
+ (e) Passport No. / Date / Place... : NIL
+ (f) Occupation.................... : Self-employed
+ (g) Address....................... : Old No. 14, New No. 27, Wall Tax Road,
+                                       Chennai - 600 003 (synthetic address)
+ (h) Mobile........................ : Withheld - available in Case Diary
+--------------------------------------------------------------------------------
+ 7. Details of known / suspected / unknown accused with full particulars
+    (1) Thiru RAVI KUMAR, age approx. 34 years, address not fully ascertained,
+        observed in the vicinity of the vehicle at the time of occurrence.
+        Status: SUSPECT NOT ESTABLISHED - identity and involvement remain to be
+        verified. No arrest effected. No charge framed at the time of registration.
+    (2) Other persons, if any - UNKNOWN.
+--------------------------------------------------------------------------------
+ 8. Reasons for delay in reporting by complainant / informant
+    Complainant first searched the surrounding parking area and enquired with the
+    parking attendant before approaching the Police Station; delay of approx.
+    8 hours 30 minutes is explained and accepted.
+--------------------------------------------------------------------------------
+ 9. Particulars of properties stolen / involved
+    Sl.  Description                                    Est. Value (INR)
+    1.   Motor car bearing registration TN01AB1234,             4,50,000
+         make/model withheld, colour white, 2016 model
+         Chassis / Engine No. : recorded in Annexure-A
+--------------------------------------------------------------------------------
+10. Total value of properties stolen / involved ....... INR 4,50,000 (synthetic)
+--------------------------------------------------------------------------------
+11. Inquest Report / U.D. Case No., if any ............ NOT APPLICABLE
+--------------------------------------------------------------------------------
+12. F.I.R. CONTENTS
+
+    The complainant Tmt. S. Vasanthi appeared before this Police Station on
+    10/08/2025 at 18:20 hrs and submitted a written complaint stating that her
+    motor vehicle bearing registration number TN01AB1234 was parked in the public
+    parking apron near Chennai Central on the morning of 10/08/2025 and was found
+    missing when she returned at about 12:15 hrs.
+
+    On preliminary enquiry, the patrol unit (HC 2214) reported that vehicle
+    TN01AB1234 was observed near Chennai Central at 09:40 hrs on 10/08/2025 and
+    that one Thiru Ravi Kumar was observed near Chennai Central using the said
+    vehicle TN01AB1234 at that time. The contact number recorded during the
+    complaint proceedings is +919840012345.
+
+    The patrol unit further reported that the vehicle thereafter moved in the
+    direction of Guindy Industrial Estate. The said movement is recorded in the
+    patrol note and is yet to be corroborated by independent record.
+
+    No suspect has been identified or charged as on the date of registration.
+    The observation recorded above attributes no offence to any individual and is
+    entered solely to preserve the information received.
+
+    Hence this First Information Report.
+--------------------------------------------------------------------------------
+13. Action taken : Since the above report reveals commission of offence(s) u/s as
+    mentioned at item No. 2, registered the case and took up the investigation.
+
+     Signature of Officer-in-Charge : /s/ R. Selvaraj
+     Name and Rank................. : Thiru R. Selvaraj, Inspector of Police (PC No. 41207)
+     Investigation entrusted to.... : Tmt. S. Bhuvaneswari, Sub-Inspector of Police (PC No. 58811)
+--------------------------------------------------------------------------------
+14. Signature / Thumb impression of the complainant / informant : /s/ S. Vasanthi
+--------------------------------------------------------------------------------
+15. Date and time of despatch to the Court ........... 11/08/2025, 10:30 hrs
+--------------------------------------------------------------------------------
+
+ ANNEXURE-A : Vehicle particulars withheld from this extract.
+ ANNEXURE-B : Patrol note of HC 2214 dated 10/08/2025 (see surveillance folder).
+
+ NOTE FOR THE CrimeNet AI PIPELINE
+ The text extracted from this document into evidence item EV-1024 is the
+ narrative at item 12 above. Extraction is rule-and-NER based; no fact has been
+ added to the graph that does not appear in this document.
+
+--------------------------------------------------------------------------------
+ Document reference : FIR No. 0412/2025 - Chennai Central P.S. (synthetic)
+ Ingested into CrimeNet AI as : EV-1024   (Case CASE-101)
+ Classification : SYNTHETIC DEMONSTRATION DATA
+--------------------------------------------------------------------------------

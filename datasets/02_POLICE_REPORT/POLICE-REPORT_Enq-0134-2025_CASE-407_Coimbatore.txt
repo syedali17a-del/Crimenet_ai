@@ -1,0 +1,53 @@
+================================================================================
+            SYNTHETIC DEMONSTRATION DATA - NOT A REAL POLICE REPORT             
+   Generated for the CrimeNet AI prototype. No real person, vehicle, account,   
+         case, police station, bank or telecom operator is represented.         
+         Not evidence. Not for operational, legal or investigative use.         
+================================================================================
+
+                     POLICE REPORT - COMPLAINT ENQUIRY NOTE                     
+                 (Document irregularity enquiry - preliminary)                  
+
+--------------------------------------------------------------------------------
+  Police Station................... : R S Puram, Coimbatore City (synthetic)
+  Enquiry Number................... : Enq. No. 0134/2025
+  Sections (proposed).............. : BNS 2023 - ss. 336(3), 340(2) [under scrutiny]
+  Internal case reference.......... : CASE-407 (Coimbatore Transport Document Inquiry)
+  Report date and time............. : 26/08/2025, 11:00 hrs
+  Reporting officer................ : Thiru P. Sathyamoorthy, Inspector of Police (PC No. 47762)
+--------------------------------------------------------------------------------
+
+ 1. SUBJECT
+    Complaint of documentation irregularities in transport consignment papers
+    reported by a logistics operator at Coimbatore R S Puram.
+
+ 2. PARTICULARS
+
+    Sl.  Date        Particular
+    --------------------------------------------------------------------------
+    1.   26/08/2025  Thiru Prakash Menon reported documentation irregularities
+                     involving vehicle TN22CD3311 at Coimbatore R S Puram.
+
+    2.   26/08/2025  Tmt. Anitha Rao, transport clerk, provided a statement
+                     regarding the preparation of the consignment documents.
+
+    3.   27/08/2025  Thiru Sanjay Prabhu is named in a transport document
+                     dated 27/08/2025 produced during the enquiry.
+
+ 3. ASSESSMENT
+    The matter is at the enquiry stage. No link to the Chennai cases has been
+    established from this record alone. Any apparent similarity of modus or of
+    entity names must not be treated as a connection in the absence of a shared
+    identifier supported by evidence.
+
+ 4. ACTION TAKEN
+    Statements recorded. Original consignment documents retained under receipt.
+    Copies forwarded to the Intelligence Analysis Cell for record comparison.
+
+  Signature of reporting officer... : /s/ P. Sathyamoorthy
+
+--------------------------------------------------------------------------------
+ Document reference : Enq. No. 0134/2025 (synthetic)
+ Ingested into CrimeNet AI as : EV-4090   (Case CASE-407)
+ Classification : SYNTHETIC DEMONSTRATION DATA
+--------------------------------------------------------------------------------

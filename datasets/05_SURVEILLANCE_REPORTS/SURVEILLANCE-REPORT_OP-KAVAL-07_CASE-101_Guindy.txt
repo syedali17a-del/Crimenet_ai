@@ -1,0 +1,69 @@
+================================================================================
+         SYNTHETIC DEMONSTRATION DATA - NOT A REAL SURVEILLANCE REPORT          
+   Generated for the CrimeNet AI prototype. No real person, vehicle, account,   
+         case, police station, bank or telecom operator is represented.         
+         Not evidence. Not for operational, legal or investigative use.         
+================================================================================
+
+                  FIELD OBSERVATION LOG - SURVEILLANCE REPORT                   
+        (Static observation, public place, no intrusive method employed)        
+
+--------------------------------------------------------------------------------
+  Operation reference.............. : OP-KAVAL/CASE-101/07 (synthetic)
+  Authority........................ : Written authority of the Deputy Commissioner
+                                       (Ref. DC/CCB/AUTH/2025/119, dated 11/08/2025)
+  Observation post................. : Public footway, Guindy Industrial Estate
+  Date............................. : 12/08/2025
+  Duration of observation.......... : 11:45 hrs to 13:10 hrs
+  Observation team................. : HC 2214 (K. Elangovan), PC 6690 (T. Anbarasu)
+  Method........................... : Visual observation from public place only
+  Recording device................. : Departmental camera DC-114 (still images only)
+  Internal case reference.......... : CASE-101
+--------------------------------------------------------------------------------
+
+ 1. OBSERVATION LOG
+
+    Time   Obs.  Entry
+    --------------------------------------------------------------------------
+    11:45  001   Observation commenced. Location: open compound adjoining Unit
+                 14, Guindy Industrial Estate. Light: clear. Visibility: good.
+
+    12:30  002   Vehicle bearing registration TN07XY4455 was observed parked at
+                 Guindy Industrial Estate, facing north, engine off.
+                 Still image ref: DC-114/2025/0812/0007.
+
+    12:31  003   Two male persons were observed near the vehicle. They were
+                 subsequently identified from departmental records as Thiru
+                 Karthik Rajan and Thiru Mohan Das. Identification is by
+                 photograph comparison only and is NOT documentarily confirmed.
+
+    12:35  004   Thiru Ravi Kumar was reported present in the same area at
+                 12:35 hrs according to the patrol note of the beat officer.
+                 This entry is a second-hand report and was not directly
+                 observed by this team.
+
+    12:52  005   The two persons at entry 003 left the compound on foot in a
+                 westerly direction. Vehicle TN07XY4455 remained parked.
+
+    13:10  006   Observation concluded. No approach, no stop and no interaction
+                 with any person was made by the observation team.
+
+ 2. ASSESSMENT
+    The log records presence and proximity only. Proximity between persons and a
+    vehicle in a public place does not establish possession, use, association or
+    the commission of any offence. Entry 004 is uncorroborated hearsay within
+    this document and requires independent support before any reliance.
+
+ 3. CAVEAT
+    This report is descriptive only and attributes no offence to any individual.
+    No intrusive technique, no interception and no entry upon private premises
+    was employed or authorised.
+
+  Signature........................ : /s/ K. Elangovan, HC 2214
+  Countersigned.................... : /s/ R. Selvaraj, Inspector of Police
+
+--------------------------------------------------------------------------------
+ Document reference : OP-KAVAL/CASE-101/07 (synthetic)
+ Ingested into CrimeNet AI as : EV-1026   (Case CASE-101)
+ Classification : SYNTHETIC DEMONSTRATION DATA
+--------------------------------------------------------------------------------

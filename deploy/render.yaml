@@ -1,0 +1,84 @@
+# CrimeNet AI — Render blueprint (single service: API + built SPA on one origin)
+#
+# Push this file to the repo root (Render looks for render.yaml at the root of the
+# connected repository) and choose "New > Blueprint" in the Render dashboard.
+#
+#   cp deploy/render.yaml render.yaml && git add render.yaml && git commit -m "deploy" && git push
+#
+# WHY ONE SERVICE: the SPA fetches /api with relative paths, so the UI and the API
+# must share an origin. serve_prod.py provides exactly that:
+#     /api/*  -> FastAPI         /*  -> frontend/dist (SPA fallback for deep links)
+#
+# CAVEAT, READ THIS: the buildCommand below needs BOTH Node and Python in the same
+# build image. Render's native Python runtime normally ships Node; if your build
+# fails at `npm ci`, use the split deployment instead (static site + API service,
+# with a proxy rewrite for /api/*) — see DEPLOY.md section 4B. That variant needs
+# no Node on the Python host at all.
+
+services:
+  - type: web
+    name: crimenet-ai
+    runtime: python
+    plan: starter          # a persistent disk requires a paid instance type
+    region: singapore      # nearest Render region to India
+    healthCheckPath: /api/health
+
+    buildCommand: |
+      set -e
+      python -m pip install --upgrade pip
+      pip install -r backend/requirements.txt
+      python -m spacy download en_core_web_sm
+      cd frontend
+      npm ci --no-audit --no-fund
+      npm run build
+
+    # --workers 1 on purpose: the login lockout counters are per-process and the
+    # audit ledger is a single SQLite file. Scale out only after adding Redis and
+    # PostgreSQL (see DEPLOY.md section 6).
+    startCommand: cd backend && uvicorn serve_prod:app --host 0.0.0.0 --port $PORT --proxy-headers --workers 1
+
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.6"
+
+      # "demo" keeps the published-literal safety checks in demo mode with random
+      # per-process secrets, which means every restart invalidates sessions.
+      # Use "production" for a real deployment — it then REFUSES TO START without
+      # the two secrets below, which is the behaviour you want.
+      - key: CRIMENET_ENVIRONMENT
+        value: demo
+
+      - key: CRIMENET_JWT_SECRET
+        generateValue: true      # rotate by setting a new value here
+      - key: CRIMENET_FIELD_KEY
+        generateValue: true      # WARNING: changing this makes existing encrypted fields unreadable
+
+      - key: CRIMENET_TLS_MODE
+        value: TERMINATED_AT_GATEWAY
+
+      # Persistent state on the mounted disk — the audit hash chain and the
+      # write-once evidence blobs must survive a redeploy.
+      - key: CRIMENET_LEDGER_PATH
+        value: /var/data/ledger.db
+      - key: CRIMENET_LEDGER_WITNESS_PATH
+        value: /var/data/ledger_witness.db
+      - key: CRIMENET_OBJECT_STORAGE
+        value: /var/data/object_storage
+      - key: CRIMENET_DIST
+        value: /opt/render/project/src/frontend/dist
+
+      # Optional real backing services. Leave unset to run the labelled embedded
+      # fallbacks; /api/health reports which profile is actually active.
+      # - key: CRIMENET_POSTGRES_DSN
+      #   fromDatabase: { name: crimenet-db, property: connectionString }
+
+    disk:
+      name: crimenet-state
+      mountPath: /var/data
+      sizeGB: 1
+
+# Optional managed PostgreSQL. Uncomment together with CRIMENET_POSTGRES_DSN above.
+# databases:
+#   - name: crimenet-db
+#     plan: basic-256mb
+#     region: singapore

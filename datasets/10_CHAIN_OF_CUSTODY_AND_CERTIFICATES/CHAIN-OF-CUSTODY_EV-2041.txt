@@ -1,0 +1,38 @@
+================================================================================
+        SYNTHETIC DEMONSTRATION DATA - NOT A REAL CHAIN OF CUSTODY FORM         
+   Generated for the CrimeNet AI prototype. No real person, vehicle, account,   
+         case, police station, bank or telecom operator is represented.         
+         Not evidence. Not for operational, legal or investigative use.         
+================================================================================
+
+                 CHAIN OF CUSTODY / EVIDENCE MOVEMENT REGISTER                  
+
+--------------------------------------------------------------------------------
+  System evidence reference........ : EV-2041
+  Case............................. : CASE-202 - Coordinated Property Crime
+  Evidence type.................... : POLICE_REPORT
+  Source........................... : Police Report
+  Recorded timestamp............... : 2025-08-18T10:30:00Z
+  Registered by.................... : INV-2201
+  Verification status in system.... : HUMAN_VERIFIED
+--------------------------------------------------------------------------------
+
+ Sl.  Date         Movement / Action                Custodian        Remarks
+ ------------------------------------------------------------------------------
+ 1    2025-08-18   Seized / received at Police Station Station House Officer
+      Remarks: Original retained in Malkhana
+ 2    2025-08-18   Copy produced for analysis       INV-2201        
+      Remarks: Working copy created; original untouched
+ 3    2025-08-18   Registered in CrimeNet AI        INV-2201        
+      Remarks: SHA-256 computed at registration and sealed in ledger
+
+ DECLARATION
+ The original record has not been modified by the CrimeNet AI platform. The
+ platform stores an immutable copy, records its SHA-256 digest at the moment of
+ registration and seals that digest in an append-only hash-chained ledger.
+
+--------------------------------------------------------------------------------
+ Document reference : COC/EV-2041 (synthetic)
+ Ingested into CrimeNet AI as : EV-2041   (Case CASE-202)
+ Classification : SYNTHETIC DEMONSTRATION DATA
+--------------------------------------------------------------------------------

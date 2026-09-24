@@ -1,0 +1,90 @@
+engine=NetworkX  nodes=29  edges=28  communities=7  modularity=0.6327
+====================================================================================================
+DEGREE_CENTRALITY - as returned by POST /api/analysis/network
+====================================================================================================
+#1  'Ravi Kumar' [PERSON]  score=0.1429  degree=4  cases=['CASE-101']  communities_touched=[5, 6]
+     connected_type_counts={'LOCATION': 1, 'ORGANIZATION': 1, 'PHONE': 1, 'VEHICLE': 1}
+     interpretation: This person appears in 1 case (CASE-101), is connected to 4 distinct entities (1 location, 1 organisation and 1 phone number), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 4 evidence-linked relationships back it. Locations recorded on this entity: Chennai Central, Guindy Industrial Estate.
+     basis: 4 evidence-linked relationships, 1 cases, 2 communities touched, present in 1 case (CASE-101)
+#2  'TN01AB1234' [VEHICLE]  score=0.1429  degree=4  cases=['CASE-101', 'CASE-202', 'CASE-305']  communities_touched=[0, 6]
+     connected_type_counts={'PERSON': 4}
+     interpretation: This vehicle appears in 3 cases (CASE-101, CASE-202, CASE-305), is connected to 4 distinct entities (4 people), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 4 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     basis: 4 evidence-linked relationships, 3 cases, 2 communities touched, present in 3 cases (CASE-101, CASE-202, CASE-305)
+#3  'Chennai Central' [LOCATION]  score=0.1429  degree=4  cases=['CASE-101', 'CASE-202']  communities_touched=[6]
+     connected_type_counts={'PERSON': 4}
+     interpretation: This location appears in 2 cases (CASE-101, CASE-202), is connected to 4 distinct entities (4 people), sits inside one community but on the shortest evidence paths between the entities in it. 4 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     basis: 4 evidence-linked relationships, 2 cases, 1 communities touched, present in 2 cases (CASE-101, CASE-202)
+#4  'Arun Selvam' [PERSON]  score=0.1429  degree=4  cases=['CASE-101', 'CASE-202', 'CASE-305']  communities_touched=[0, 5, 6]
+     connected_type_counts={'LOCATION': 2, 'PHONE': 1, 'VEHICLE': 1}
+     interpretation: This person appears in 3 cases (CASE-101, CASE-202, CASE-305), is connected to 4 distinct entities (2 locations, 1 phone number and 1 vehicle), and links 3 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 4 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding. Locations recorded on this entity: Chennai Central, Chennai Port.
+     basis: 4 evidence-linked relationships, 3 cases, 3 communities touched, present in 3 cases (CASE-101, CASE-202, CASE-305)
+#5  'R. Kumar' [PERSON]  score=0.1071  degree=3  cases=['CASE-202']  communities_touched=[6]
+     connected_type_counts={'DEVICE': 1, 'LOCATION': 1, 'VEHICLE': 1}
+     interpretation: This person appears in 1 case (CASE-202), is connected to 3 distinct entities (1 device, 1 location and 1 vehicle), sits inside one community but on the shortest evidence paths between the entities in it. 3 evidence-linked relationships back it. Locations recorded on this entity: Chennai Central.
+     basis: 3 evidence-linked relationships, 1 cases, 1 communities touched, present in 1 case (CASE-202)
+#6  'Chennai Port' [LOCATION]  score=0.1071  degree=3  cases=['CASE-305', 'CASE-202']  communities_touched=[0, 6]
+     connected_type_counts={'ORGANIZATION': 1, 'PERSON': 2}
+     interpretation: This location appears in 2 cases (CASE-202, CASE-305), is connected to 3 distinct entities (2 people and 1 organisation), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 3 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     basis: 3 evidence-linked relationships, 2 cases, 2 communities touched, present in 2 cases (CASE-202, CASE-305)
+#7  '+91 98400 ••••7' [PHONE]  score=0.1071  degree=3  cases=['CASE-101', 'CASE-202']  communities_touched=[5, 6]
+     connected_type_counts={'PERSON': 2, 'PHONE': 1}
+     interpretation: This phone number appears in 2 cases (CASE-101, CASE-202), is connected to 3 distinct entities (2 people and 1 phone number), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 3 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     basis: 3 evidence-linked relationships, 2 cases, 2 communities touched, present in 2 cases (CASE-101, CASE-202)
+#8  'TN07XY4455' [VEHICLE]  score=0.1071  degree=3  cases=['CASE-101']  communities_touched=[1]
+     connected_type_counts={'LOCATION': 1, 'PERSON': 2}
+     interpretation: This vehicle appears in 1 case (CASE-101), is connected to 3 distinct entities (2 people and 1 location), sits inside one community but on the shortest evidence paths between the entities in it. 3 evidence-linked relationships back it.
+     basis: 3 evidence-linked relationships, 1 cases, 1 communities touched, present in 1 case (CASE-101)
+#9  'A/C ••••0987' [ACCOUNT]  score=0.1071  degree=3  cases=['CASE-305']  communities_touched=[2]
+     connected_type_counts={'ACCOUNT': 1, 'PERSON': 2}
+     interpretation: This bank account appears in 1 case (CASE-305), is connected to 3 distinct entities (2 people and 1 bank account), sits inside one community but on the shortest evidence paths between the entities in it. 3 evidence-linked relationships back it.
+     basis: 3 evidence-linked relationships, 1 cases, 1 communities touched, present in 1 case (CASE-305)
+#10  '+91 98400 ••••5' [PHONE]  score=0.0714  degree=2  cases=['CASE-101', 'CASE-202']  communities_touched=[5, 6]
+     connected_type_counts={'PERSON': 1, 'PHONE': 1}
+     interpretation: This phone number appears in 2 cases (CASE-101, CASE-202), is connected to 2 distinct entities (1 person and 1 phone number), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 2 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     basis: 2 evidence-linked relationships, 2 cases, 2 communities touched, present in 2 cases (CASE-101, CASE-202)
+====================================================================================================
+BETWEENNESS_CENTRALITY - as returned by POST /api/analysis/network
+====================================================================================================
+#1  'Arun Selvam' [PERSON]  score=0.101  degree=4  cases=['CASE-101', 'CASE-202', 'CASE-305']  communities_touched=[0, 5, 6]
+     connected_type_counts={'LOCATION': 2, 'PHONE': 1, 'VEHICLE': 1}
+     interpretation: This person appears in 3 cases (CASE-101, CASE-202, CASE-305), is connected to 4 distinct entities (2 locations, 1 phone number and 1 vehicle), and links 3 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 4 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding. Locations recorded on this entity: Chennai Central, Chennai Port.
+     basis: 4 evidence-linked relationships, 3 cases, 3 communities touched, present in 3 cases (CASE-101, CASE-202, CASE-305)
+#2  'Chennai Port' [LOCATION]  score=0.0688  degree=3  cases=['CASE-305', 'CASE-202']  communities_touched=[0, 6]
+     connected_type_counts={'ORGANIZATION': 1, 'PERSON': 2}
+     interpretation: This location appears in 2 cases (CASE-202, CASE-305), is connected to 3 distinct entities (2 people and 1 organisation), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 3 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     basis: 3 evidence-linked relationships, 2 cases, 2 communities touched, present in 2 cases (CASE-202, CASE-305)
+#3  'Chennai Central' [LOCATION]  score=0.0635  degree=4  cases=['CASE-101', 'CASE-202']  communities_touched=[6]
+     connected_type_counts={'PERSON': 4}
+     interpretation: This location appears in 2 cases (CASE-101, CASE-202), is connected to 4 distinct entities (4 people), sits inside one community but on the shortest evidence paths between the entities in it. 4 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     basis: 4 evidence-linked relationships, 2 cases, 1 communities touched, present in 2 cases (CASE-101, CASE-202)
+#4  'TN01AB1234' [VEHICLE]  score=0.0608  degree=4  cases=['CASE-101', 'CASE-202', 'CASE-305']  communities_touched=[0, 6]
+     connected_type_counts={'PERSON': 4}
+     interpretation: This vehicle appears in 3 cases (CASE-101, CASE-202, CASE-305), is connected to 4 distinct entities (4 people), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 4 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     basis: 4 evidence-linked relationships, 3 cases, 2 communities touched, present in 3 cases (CASE-101, CASE-202, CASE-305)
+#5  'Ravi Kumar' [PERSON]  score=0.0534  degree=4  cases=['CASE-101']  communities_touched=[5, 6]
+     connected_type_counts={'LOCATION': 1, 'ORGANIZATION': 1, 'PHONE': 1, 'VEHICLE': 1}
+     interpretation: This person appears in 1 case (CASE-101), is connected to 4 distinct entities (1 location, 1 organisation and 1 phone number), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 4 evidence-linked relationships back it. Locations recorded on this entity: Chennai Central, Guindy Industrial Estate.
+     basis: 4 evidence-linked relationships, 1 cases, 2 communities touched, present in 1 case (CASE-101)
+#6  '+91 98400 ••••7' [PHONE]  score=0.045  degree=3  cases=['CASE-101', 'CASE-202']  communities_touched=[5, 6]
+     connected_type_counts={'PERSON': 2, 'PHONE': 1}
+     interpretation: This phone number appears in 2 cases (CASE-101, CASE-202), is connected to 3 distinct entities (2 people and 1 phone number), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 3 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     basis: 3 evidence-linked relationships, 2 cases, 2 communities touched, present in 2 cases (CASE-101, CASE-202)
+#7  'R. Kumar' [PERSON]  score=0.0375  degree=3  cases=['CASE-202']  communities_touched=[6]
+     connected_type_counts={'DEVICE': 1, 'LOCATION': 1, 'VEHICLE': 1}
+     interpretation: This person appears in 1 case (CASE-202), is connected to 3 distinct entities (1 device, 1 location and 1 vehicle), sits inside one community but on the shortest evidence paths between the entities in it. 3 evidence-linked relationships back it. Locations recorded on this entity: Chennai Central.
+     basis: 3 evidence-linked relationships, 1 cases, 1 communities touched, present in 1 case (CASE-202)
+#8  'Coastal Logistics Pvt Ltd' [ORGANIZATION]  score=0.0344  degree=2  cases=['CASE-305', 'CASE-407']  communities_touched=[0]
+     connected_type_counts={'LOCATION': 1, 'PERSON': 1}
+     interpretation: This organisation appears in 2 cases (CASE-305, CASE-407), is connected to 2 distinct entities (1 location and 1 person), sits inside one community but on the shortest evidence paths between the entities in it. 2 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     basis: 2 evidence-linked relationships, 2 cases, 1 communities touched, present in 2 cases (CASE-305, CASE-407)
+#9  'Ravi K.' [PERSON]  score=0.0146  degree=2  cases=['CASE-305']  communities_touched=[0, 6]
+     connected_type_counts={'LOCATION': 1, 'VEHICLE': 1}
+     interpretation: This person appears in 1 case (CASE-305), is connected to 2 distinct entities (1 location and 1 vehicle), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 2 evidence-linked relationships back it. Locations recorded on this entity: Chennai Port.
+     basis: 2 evidence-linked relationships, 1 cases, 2 communities touched, present in 1 case (CASE-305)
+#10  'A/C ••••0987' [ACCOUNT]  score=0.0132  degree=3  cases=['CASE-305']  communities_touched=[2]
+     connected_type_counts={'ACCOUNT': 1, 'PERSON': 2}
+     interpretation: This bank account appears in 1 case (CASE-305), is connected to 3 distinct entities (2 people and 1 bank account), sits inside one community but on the shortest evidence paths between the entities in it. 3 evidence-linked relationships back it.
+     basis: 3 evidence-linked relationships, 1 cases, 1 communities touched, present in 1 case (CASE-305)
+
+distinct interpretation strings among all returned rows: 12 of 12 distinct nodes
+safety_note present: True -> Centrality measures structural position in the evidence graph only. It is not evidence of leadership, control or criminality.

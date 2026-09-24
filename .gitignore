@@ -1,0 +1,57 @@
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Node / build output --------------------------------------------------
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# --- Runtime state (per-instance; never commit) ---------------------------
+# The audit ledger is a hash chain tied to the running instance and its witness
+# file; evidence blobs under object_storage/ are regenerated at every startup by
+# backend/app/database/seed.py (object_storage.reset()). Committing them would
+# ship one machine's audit history and invite merge conflicts between instances.
+backend/ledger.db
+backend/ledger.db-shm
+backend/ledger.db-wal
+backend/ledger_witness.db
+backend/ledger_witness.db-shm
+backend/ledger_witness.db-wal
+*.db
+*.db-shm
+*.db-wal
+backend/object_storage/
+backend/logs/
+*.log
+
+# --- Local scratch / personal files --------------------------------------
+# uploads/ holds whatever is dropped into the workspace locally (screenshots and
+# other personal files). It is not part of the application.
+uploads/
+
+# --- Secrets --------------------------------------------------------------
+.env
+.env.*
+!.env.example
+!deploy/crimenet.env.example
+*.pem
+*.key
+.netrc
+.git-credentials
+
+# --- Export artifacts (transfer aids, not source) ---------------------------
+crimenet-ai.bundle
+crimenet-ai-repo.zip
+
+# --- Editors / OS ---------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*~

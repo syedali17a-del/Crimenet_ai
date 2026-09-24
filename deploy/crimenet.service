@@ -1,0 +1,71 @@
+# CrimeNet AI — systemd unit (single-origin API + SPA)
+#
+# Install:
+#   sudo cp deploy/crimenet.service /etc/systemd/system/crimenet.service
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now crimenet
+#   sudo systemctl status crimenet
+#   journalctl -u crimenet -f
+#
+# The service runs `serve_prod:app`, which serves the built SPA from
+# CRIMENET_DIST and every API route from the same origin. Caddy/nginx in front
+# only terminates TLS and forwards to 127.0.0.1:8000.
+#
+# ONE WORKER ON PURPOSE: the login lockout counters live in process memory and
+# the audit ledger is a single SQLite file. With --workers 2 each worker would
+# keep its own attempt counters (weakening the rate limit) and two processes
+# would contend on the ledger WAL. Add Redis/PostgreSQL first, then scale out.
+# For the same reason: NEVER run with --reload in production.
+
+[Unit]
+Description=CrimeNet AI — investigative intelligence API + SPA
+Documentation=file:/opt/crimenet/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=exec
+User=crimenet
+Group=crimenet
+WorkingDirectory=/opt/crimenet/backend
+
+EnvironmentFile=/etc/crimenet/crimenet.env
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+
+# Same interpreter as the venv built during deployment.
+ExecStart=/opt/crimenet/venv/bin/python -m uvicorn serve_prod:app \
+    --host 127.0.0.1 --port 8000 \
+    --proxy-headers --forwarded-allow-ips=127.0.0.1 \
+    --workers 1 --no-server-header
+
+# If the app refuses to start (e.g. production profile without secrets) systemd
+# should keep retrying, but not in a tight loop.
+Restart=on-failure
+RestartSec=5s
+StartLimitIntervalSec=60
+StartLimitBurst=5
+TimeoutStopSec=20
+
+# --- hardening: the process needs to read the code and write only its state ---
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectSystem=strict
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+RestrictNamespaces=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=no
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+ReadWritePaths=/var/lib/crimenet
+
+# --- resource ceiling (spaCy + pandas are the heavy imports) ---
+MemoryMax=2G
+TasksMax=256
+
+[Install]
+WantedBy=multi-user.target

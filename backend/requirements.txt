@@ -1,0 +1,35 @@
+# CrimeNet AI — backend dependencies
+# Python 3.11 – 3.13
+#
+# Install:
+#   pip install -r requirements.txt
+#   python -m spacy download en_core_web_sm
+
+# --- web framework ---
+fastapi>=0.115
+uvicorn>=0.30
+pydantic>=2.7
+python-multipart>=0.0.9
+
+# --- security ---
+PyJWT>=2.8
+
+# --- document text acquisition / language ---
+pypdf>=4.2
+langdetect>=1.0.9
+
+# --- cryptography (field encryption) ---
+cryptography>=42.0
+
+# --- NLP / analytics ---
+spacy>=3.7
+scikit-learn>=1.4
+pandas>=2.1
+numpy>=1.26
+networkx>=3.2
+rapidfuzz>=3.6
+
+# --- optional real backing services (the app runs without them and falls back
+#     to clearly labelled embedded profiles) ---
+redis>=5.0
+neo4j>=5.20

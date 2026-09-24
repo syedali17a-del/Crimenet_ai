@@ -1,0 +1,38 @@
+ISOLATION: running against copies of the durable stores, the live files
+           are untouched (temp dir: /tmp/crimenet-tamper-3pmg4m1j)
+
+================================================================================================
+SCENARIO A - insider rewrites the object AND the registry hash together
+================================================================================================
+1. probe registered, three-way check          : VERIFIED
+     object      = 86d62bb357441b9732a001700135f8a3...
+     registry    = 86d62bb357441b9732a001700135f8a3...
+     ledger      = 86d62bb357441b9732a001700135f8a3...
+
+2. attacker rewrites the object and the registry hash to match it
+     two-way check (object == registry) would report : VERIFIED (4e89b609d1035917... == 4e89b609d1035917...)
+
+3. three-way check                            : INTEGRITY_MISMATCH
+     object agrees with registry : True
+     registry agrees with ledger : False
+     ledger-registered digest    : 86d62bb357441b9732a001700135f8a3...
+     ledger chain intact         : True
+     witness agrees              : True
+
+   RESULT: DETECTED
+
+================================================================================================
+SCENARIO B - skilled attacker rewrites ledger.db and recomputes the chain
+================================================================================================
+1. ledger before attack : 21 blocks, intact=True, witness_agrees=True
+2. attacker edited block 1 and recomputed all following block hashes
+3. chain recomputation alone                  : intact=False
+   index-sequence / hash-link check           : broken_blocks=[]
+   WITNESS comparison                         : agrees=False, divergent_blocks=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+   reported chain_intact                      : False
+
+   RESULT: DETECTED
+
+================================================================================================
+PHASE 4 ACCEPTANCE: object+DB rewrite detected = True | ledger rewrite detected = True
+================================================================================================

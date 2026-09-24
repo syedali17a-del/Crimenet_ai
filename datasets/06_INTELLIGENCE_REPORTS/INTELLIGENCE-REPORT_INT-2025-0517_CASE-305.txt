@@ -1,0 +1,55 @@
+================================================================================
+         SYNTHETIC DEMONSTRATION DATA - NOT A REAL INTELLIGENCE REPORT          
+   Generated for the CrimeNet AI prototype. No real person, vehicle, account,   
+         case, police station, bank or telecom operator is represented.         
+         Not evidence. Not for operational, legal or investigative use.         
+================================================================================
+
+                          INTELLIGENCE REPORT (5x5x5)                           
+                           UNVERIFIED - NOT EVIDENCE                            
+
+--------------------------------------------------------------------------------
+  Report reference................. : INT/IAC/2025/0517
+  Date of report................... : 25/08/2025
+  Originating unit................. : Intelligence Analysis Cell (synthetic)
+  Dissemination.................... : Restricted - investigating officers of the named case
+--------------------------------------------------------------------------------
+ 5x5x5 INFORMATION / INTELLIGENCE EVALUATION
+   Source evaluation ....... C - Source of limited reliability
+   Intelligence evaluation . 3 - Information not known personally to the source but corroborated
+   Handling code ........... 2 - Dissemination permitted to other agencies, no onward release
+--------------------------------------------------------------------------------
+
+  Related case reference........... : CASE-305
+  Related evidence in system....... : EV-3071
+
+ 1. INFORMATION RECEIVED
+
+    Thiru Ravi K. was reported near Chennai Port on 25/08/2025 in the company
+    of a vehicle recorded as TN01AB1234.
+
+    Thiru Arun Selvam was observed at Chennai Port at 15:20 hrs on 25/08/2025.
+
+    Coastal Logistics Pvt Ltd operates a facility in the same area.
+
+ 2. ANALYTICAL OBSERVATION
+
+    Vehicle TN01AB1234 now appears in three separate case files (CASE-101,
+    CASE-202 and CASE-305). The registration number is a strong identifier and
+    is the only element common to all three files that is supported by a
+    documentary record in each.
+
+    The name variants 'Ravi Kumar', 'R. Kumar' and 'Ravi K.' are NOT to be
+    treated as the same person on the strength of name similarity alone.
+
+ 3. RELIABILITY CAVEAT
+    The note is unverified and carries no evidentiary weight without
+    corroboration from an authorised record.
+
+  Prepared by...................... : Thiru J. Vetrivel, Inspector (Intelligence Analysis Cell)
+
+--------------------------------------------------------------------------------
+ Document reference : INT/IAC/2025/0517 (synthetic)
+ Ingested into CrimeNet AI as : EV-3071   (Case CASE-305)
+ Classification : SYNTHETIC DEMONSTRATION DATA
+--------------------------------------------------------------------------------

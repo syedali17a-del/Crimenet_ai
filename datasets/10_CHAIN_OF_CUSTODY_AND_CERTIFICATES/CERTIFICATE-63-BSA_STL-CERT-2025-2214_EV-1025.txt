@@ -1,0 +1,52 @@
+================================================================================
+             SYNTHETIC DEMONSTRATION DATA - NOT A REAL CERTIFICATE              
+   Generated for the CrimeNet AI prototype. No real person, vehicle, account,   
+         case, police station, bank or telecom operator is represented.         
+         Not evidence. Not for operational, legal or investigative use.         
+================================================================================
+
+                       CERTIFICATE UNDER SECTION 63(4)(c)                       
+                    OF THE BHARATIYA SAKSHYA ADHINIYAM, 2023                    
+            (erstwhile Section 65B of the Indian Evidence Act, 1872)            
+
+--------------------------------------------------------------------------------
+  Certificate reference............ : STL/CERT/2025/2214
+  Subject of the certificate....... : Call detail records of +919840012345 and +919840099887
+  Related case..................... : CASE-101
+  System evidence reference........ : EV-1025
+  Date of production............... : 14/08/2025
+--------------------------------------------------------------------------------
+
+ I, the undersigned, being the person occupying a responsible official position
+ in relation to the operation of the computer system described below, do hereby
+ certify that:
+
+ 1. The electronic record produced is a copy of information contained in a
+    computer output produced by the following system in the ordinary course of
+    its activities:
+       STL mediation and billing system
+
+ 2. Throughout the material period the said computer was operating properly, or
+    if not, any respect in which it was not operating properly was not such as
+    to affect the electronic record or the accuracy of its contents.
+
+ 3. The information contained in the electronic record reproduces or is derived
+    from information supplied to the computer in the ordinary course of the said
+    activities.
+
+ 4. The hash value of the produced electronic record is recorded below and may
+    be used to verify that the record has not been altered after production:
+       SHA-256 : <computed at export time - see DATASET_MANIFEST.csv>
+
+  Name and designation............. : Nodal Officer (LEA), Synthetic Telecom Ltd
+  Signature........................ : /s/ (synthetic)
+
+ NOTE: This is a SYNTHETIC specimen certificate created to demonstrate the
+ chain-of-custody and hash-verification workflow of the CrimeNet AI prototype.
+ It has no legal effect whatsoever.
+
+--------------------------------------------------------------------------------
+ Document reference : STL/CERT/2025/2214
+ Ingested into CrimeNet AI as : EV-1025   (Case CASE-101)
+ Classification : SYNTHETIC DEMONSTRATION DATA
+--------------------------------------------------------------------------------

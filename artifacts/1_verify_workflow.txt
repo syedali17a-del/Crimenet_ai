@@ -1,0 +1,65 @@
+
+STAGE 1 — LOGIN (JWT + RBAC)
+  PASS  supervisor authenticated (JWT issued)
+  PASS  wrong password rejected
+  PASS  case-level authorization blocks out-of-scope case
+  PASS  supervisor blocked from user:manage endpoint
+
+STAGE 2 — CASES
+  PASS  5 cases visible to supervisor
+  PASS  case detail CASE-101
+
+STAGE 3 — EVIDENCE REGISTRY
+  PASS  10 evidence objects registered
+  PASS  new evidence registered as EV-5121 (SHA-256 at intake)
+
+STAGE 4 — ENTITY EXTRACTION (document intelligence)
+  PASS  6 entities extracted (spaCy NER + rule layer)
+  PASS  vehicle registration recognised by rule layer
+  PASS  pipeline reached RELATIONSHIPS_CANDIDATE
+
+STAGE 5 — ENTITY RESOLUTION
+  PASS  auto-merge disabled (human decision required)
+  PASS  top candidate identity match scored 95.0
+
+STAGE 6 — CROSS-CASE CORRELATION
+  PASS  3 cross-case associations (top strength 97.0)
+
+STAGE 7 — KNOWLEDGE GRAPH
+  PASS  graph projected: 43 nodes / 38 evidence-backed edges
+  PASS  every edge carries an evidence reference
+
+STAGE 8 — NETWORK ANALYSIS
+  PASS  degree + betweenness centrality computed
+  PASS  8 communities detected (Louvain)
+  PASS  shortest evidence path PER-001 → PER-004
+
+STAGE 9 — TIMELINE / TEMPORAL
+  PASS  17 chronological events reconstructed
+  PASS  spatio-temporal convergence windows computed
+  PASS  1 behavioural anomaly (Isolation Forest) + 1 shared-identifier pattern (rule-based); 2 detectors active: isolation_forest_transaction_burst+shared_identifier_cross_case
+
+STAGE 10 — CORROBORATION
+  PASS  contradiction surfaced, not suppressed
+  PASS  CASE-512 returns INSUFFICIENT EVIDENCE with the gap named
+
+STAGE 11 — INFORMATION GAPS
+  PASS  5 information gaps with known/unknown split
+
+STAGE 12 — NEXT-BEST ACTION
+  PASS  recommended: Cross-reference authorized vehicle records
+  PASS  action catalogue is analytical only (no arrest/surveillance actions)
+
+STAGE 13 — HUMAN VERIFICATION
+  PASS  relationship verification recorded
+  PASS  cross-case rejection recorded (finding retained)
+
+STAGE 14 — SHA-256 INTEGRITY
+  PASS  EV-1024 integrity VERIFIED
+  PASS  EV-2042 tamper demo returns INTEGRITY_MISMATCH
+
+STAGE 15 — AUDIT + LEDGER
+  PASS  18 append-only audit records written during this run
+  PASS  ledger hash chain intact (18 blocks)
+
+RESULT: 33 passed, 0 failed

@@ -1,0 +1,61 @@
+================================================================================
+         SYNTHETIC DEMONSTRATION DATA - NOT A REAL INTELLIGENCE REPORT          
+   Generated for the CrimeNet AI prototype. No real person, vehicle, account,   
+         case, police station, bank or telecom operator is represented.         
+         Not evidence. Not for operational, legal or investigative use.         
+================================================================================
+
+                          INTELLIGENCE REPORT (5x5x5)                           
+                           UNVERIFIED - NOT EVIDENCE                            
+
+--------------------------------------------------------------------------------
+  Report reference................. : INT/CCB/2025/0442
+  Date of report................... : 19/08/2025
+  Originating unit................. : Intelligence Analysis Cell (synthetic)
+  Dissemination.................... : Restricted - investigating officers of the named case
+--------------------------------------------------------------------------------
+ 5x5x5 INFORMATION / INTELLIGENCE EVALUATION
+   Source evaluation ....... D - Untested source
+   Intelligence evaluation . 4 - Cannot be judged; no means of assessing the information
+   Handling code ........... 2 - Dissemination permitted to other agencies, no onward release
+--------------------------------------------------------------------------------
+
+  Related case reference........... : CASE-202
+  Related evidence in system....... : EV-2043
+
+ 1. INFORMATION RECEIVED
+
+    An unverified note states that Thiru Ravi Kumar was reported at Madurai on
+    18/08/2025 at 10:00 hrs.
+
+    This directly conflicts with the Chennai Central observation recorded in
+    the police report at Cr. No. 0518/2025 (system reference EV-2041), which
+    places the same identity profile at Chennai Central at 10:05 hrs on the
+    same date. The two locations are approximately 460 km apart; the reported
+    positions are not physically reconcilable within a five-minute interval.
+
+    The note further states that Thiru Vignesh Anand is named in connection
+    with vehicle TN09KL8899 at T Nagar on 19/08/2025.
+
+ 2. HANDLING DIRECTION - CONTRADICTION
+
+    This contradiction is retained DELIBERATELY and must NOT be suppressed,
+    reconciled or averaged during analysis. Either
+      (a) one of the two reports is inaccurate, or
+      (b) the two records refer to two different individuals bearing similar
+          names.
+    Until the point is resolved by documentary identity evidence, the identity
+    hypothesis Ravi Kumar <-> R. Kumar must be held as NOT ESTABLISHED.
+
+ 3. RELIABILITY CAVEAT
+    The source has not previously provided information to this unit. The
+    information is uncorroborated and carries no evidentiary weight. It may not
+    be used as the basis of any coercive action.
+
+  Prepared by...................... : Thiru J. Vetrivel, Inspector (Intelligence Analysis Cell)
+
+--------------------------------------------------------------------------------
+ Document reference : INT/CCB/2025/0442 (synthetic)
+ Ingested into CrimeNet AI as : EV-2043   (Case CASE-202)
+ Classification : SYNTHETIC DEMONSTRATION DATA
+--------------------------------------------------------------------------------

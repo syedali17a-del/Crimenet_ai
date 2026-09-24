@@ -1,0 +1,20 @@
+============================================================================================
+PHASE 6 - MEASURED SCALABILITY OF ENTITY RESOLUTION (all-pairs, no blocking)
+============================================================================================
+resolution_agent.compare_pair() is called once per candidate pair; the
+algorithm is O(N^2) in the number of entities, exactly as documented.
+
+ N entities   comparisons   wall clock   per pair  pairs/sec  candidates
+--------------------------------------------------------------------------------------------
+         50         1,225       0.16 s      127 us      7,856          16
+        200        19,900       2.29 s      115 us      8,698         354
+        500       124,750      13.66 s      109 us      9,135       2,176
+      1,000       499,500      55.20 s      111 us      9,049       8,780
+--------------------------------------------------------------------------------------------
+growth: 20x the entities costs 354.0x the time (quadratic)
+projected for 5,000 entities : 23.0 minutes   (single core, this implementation, no blocking)
+projected for 10,000 entities: 92.1 minutes   (single core, this implementation, no blocking)
+
+honest reading: this is the worst case (every pair compared). A production
+deployment adds blocking keys - exact identifier match first, then name
+phonetics - so only a small candidate set reaches the fuzzy resolver.

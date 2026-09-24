@@ -1,0 +1,25 @@
+
+====================================================================================================
+A3 — TWO LABELLED DETECTORS   (POST /api/analysis/anomaly)
+====================================================================================================
+detector_count: 2
+  - {'detector': 'isolation_forest_transaction_burst', 'detector_kind': 'classical_ml', 'question': 'Does an account behave abnormally against its own transaction baseline?', 'method': 'IsolationForest (scikit-learn)', 'findings': 1}
+  - {'detector': 'shared_identifier_cross_case', 'detector_kind': 'rule_based', 'question': 'Flags an identifier (phone, vehicle, account, device) that appears in the evidence of 2+ cases that have no other declared connection.', 'method': 'rule matched', 'findings': 1}
+
+[isolation_forest_transaction_burst]  kind=classical_ml  model=None
+   account_id    : ACC-001
+   case_id       : CASE-305
+   window        : 2025-08-22 14:00:00+00:00
+   observed      : {'transactions_in_hour': 50, 'total_amount': 1316081.59, 'distinct_counterparties': 2}
+   baseline      : {'mean_transactions_per_day': 11.6, 'description': 'Mean daily transaction volume for this account across available evidence.'}
+   anomaly_score : 0.2231
+   evidence_ids  : ['EV-3070']
+   interpretation: Behavioural anomaly detected relative to the account's own baseline. An anomaly is not an indication of criminal activity and requires corroboration and investigator review.
+
+[shared_identifier_cross_case]  kind=rule_based  model=None
+   evidence_ids  : ['EV-1024', 'EV-2041', 'EV-3071']
+   interpretation: A shared identifier is a lead to check, not proof that the cases are related or that any person is involved in an offence. Co-occurrence of an identifier across cases may also be a data-entry or data-quality artefact.
+   reason        : vehicle registration TN01AB1234 appears in the evidence for CASE-202 and CASE-305 with no other link between these cases: no shared person or alias, and no second identifier. The only other things these cases have in common are Location consistency: CHENNAI PORT; Temporal relationship: 3 day(s) between nearest events, neither of which this product treats as a connection (co-location is not proof of a meeting, and temporal proximity alone is not an association signal).
+   pattern       : SHARED_IDENTIFIER_WITHOUT_OTHER_LINK
+
+distinct detectors represented in findings: 2 -> ['isolation_forest_transaction_burst', 'shared_identifier_cross_case']

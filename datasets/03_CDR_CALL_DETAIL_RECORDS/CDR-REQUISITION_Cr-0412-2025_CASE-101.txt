@@ -1,0 +1,48 @@
+================================================================================
+          SYNTHETIC DEMONSTRATION DATA - NOT A REAL REQUISITION LETTER          
+   Generated for the CrimeNet AI prototype. No real person, vehicle, account,   
+         case, police station, bank or telecom operator is represented.         
+         Not evidence. Not for operational, legal or investigative use.         
+================================================================================
+
+                       OFFICE OF THE INSPECTOR OF POLICE                        
+                   CHENNAI CENTRAL POLICE STATION (SYNTHETIC)                   
+
+  Reference........................ : Cr. No. 0412/2025 / CDR / 03
+  Date............................. : 12/08/2025
+
+ To
+    Nodal Officer (LEA), Synthetic Telecom Ltd., Chennai Circle
+
+ Sir / Madam,
+
+ Sub: Requisition for Call Detail Records - Cr. No. 0412/2025 u/s 303(2) BNS -
+      reg.
+ Ref: Section 94 of the Bharatiya Nagarik Suraksha Sanhita, 2023
+      (erstwhile Section 91 of the Code of Criminal Procedure, 1973)
+
+    In connection with the investigation of the case cited above, you are
+ required to furnish the Call Detail Records, subscriber details and cell site
+ particulars in respect of the following mobile numbers for the period from
+ 10/08/2025 00:00 hrs to 19/08/2025 23:59 hrs:
+
+      1. +91 98400 12345
+      2. +91 98400 99887
+
+    The records may be furnished in machine-readable form together with the
+ certificate under Section 63(4)(c) of the Bharatiya Sakshya Adhiniyam, 2023
+ (erstwhile Section 65B of the Indian Evidence Act, 1872).
+
+    No content of communication is sought. Only metadata as maintained in the
+ ordinary course of business is required.
+
+                                                    Yours faithfully,
+
+                                                    /s/ R. Selvaraj
+                                                    Thiru R. Selvaraj, Inspector of Police (PC No. 41207)
+
+--------------------------------------------------------------------------------
+ Document reference : Cr. No. 0412/2025 / CDR / 03 (synthetic)
+ Ingested into CrimeNet AI as : EV-1025   (Case CASE-101)
+ Classification : SYNTHETIC DEMONSTRATION DATA
+--------------------------------------------------------------------------------

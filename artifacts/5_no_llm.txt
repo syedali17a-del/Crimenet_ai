@@ -1,0 +1,20 @@
+================================================================================================
+AI-SAFETY STATIC CHECK - is there a generative model in the evidence path?
+================================================================================================
+scanned 28 python files under: app/agents, app/analytics, app/api (+ app/main.py)
+
+allowed non-generative components found in the evidence path:
+  ALLOWED  transformers   in 3 file(s) - document_agent.py loads an OCR/token-classification model from local weights when present; token classification returns labels, it does not generate text and it never writes to the graph.
+  ALLOWED  spacy          in 3 file(s) - statistical NER (en_core_web_sm): trained tagger, not a generator.
+  ALLOWED  sklearn        in 1 file(s) - classical ML: IsolationForest over transaction features.
+  ALLOWED  rapidfuzz      in 4 file(s) - deterministic string ratio, no model at all.
+
+checks performed:
+  1. generative client libraries (openai, anthropic, langchain, cohere, ollama, ...): none imported
+  2. generative service endpoints (api.openai.com, api.anthropic.com, ...): none called
+  3. generative call shapes (chat.completions.create, generate_content, LLMChain, ...): none present
+
+GENERATIVE-MODEL CHECK: PASS - no generative model is imported, called or reachable
+from app/agents, app/analytics or app/api. Untrusted document text is processed by
+rules, statistical NER, RapidFuzz, NetworkX and IsolationForest only.
+================================================================================================

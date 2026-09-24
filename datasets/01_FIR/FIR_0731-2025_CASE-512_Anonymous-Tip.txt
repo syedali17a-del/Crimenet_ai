@@ -1,0 +1,75 @@
+================================================================================
+SYNTHETIC DEMONSTRATION DATA - NOT A REAL COMMUNITY SERVICE REGISTER / TIP ENTRY
+   Generated for the CrimeNet AI prototype. No real person, vehicle, account,   
+         case, police station, bank or telecom operator is represented.         
+         Not evidence. Not for operational, legal or investigative use.         
+================================================================================
+
+                 FORM IF1  (INTEGRATED INVESTIGATION FORM - 1)                  
+             PRELIMINARY INFORMATION ENTRY / ANONYMOUS TIP REGISTER             
+            (Non-cognizable preliminary entry pending verification)             
+
+--------------------------------------------------------------------------------
+ 1. District : Greater Chennai (synthetic)      P.S. : Chennai Central (synthetic)
+    Year     : 2025          Register Entry No. : 0731/2025      Date : 01/09/2025
+--------------------------------------------------------------------------------
+ 2. Act(s) and Section(s) ................ NOT ASCERTAINED
+    No cognizable offence is disclosed by the information as received.
+--------------------------------------------------------------------------------
+ 3. (a) Occurrence of offence : Day  NOT STATED   Date NOT STATED
+        Time From NOT STATED   Time To NOT STATED
+    (b) Information received at P.S. : Date 01/09/2025   Time 08:15 hrs
+    (c) General Diary Reference      : Entry No. 219/2025  Time 08:19 hrs
+--------------------------------------------------------------------------------
+ 4. Type of Information .................. ORAL (anonymous telephone call)
+--------------------------------------------------------------------------------
+ 5. Place of Occurrence
+    (a) Direction and distance from P.S. : NOT STATED BY CALLER
+    (b) Address ......................... 'near the market' - NOT SPECIFIC
+    (c) Outside P.S. limits ? ........... CANNOT BE DETERMINED
+--------------------------------------------------------------------------------
+ 6. Complainant / Informant .............. ANONYMOUS
+     Caller identity............... : Not disclosed; caller disconnected
+     Call-back number.............. : Not available (number withheld)
+--------------------------------------------------------------------------------
+ 7. Details of known / suspected / unknown accused ..... NONE PROVIDED
+    No name, no description, no vehicle, no phone number was provided.
+--------------------------------------------------------------------------------
+ 8. Reasons for delay in reporting ....... NOT APPLICABLE
+--------------------------------------------------------------------------------
+ 9. Particulars of properties involved ... NONE STATED
+--------------------------------------------------------------------------------
+10. Total value of properties ............ NIL
+--------------------------------------------------------------------------------
+12. CONTENTS OF INFORMATION
+
+    An anonymous caller stated that 'something suspicious is happening near the
+    market'. The caller provided no name, no vehicle particulars, no telephone
+    number, no specific location, no date or time of the alleged occurrence and
+    no supporting record of any kind. The caller disconnected before any
+    clarification could be obtained.
+
+    No prior case reference exists against the information as received.
+
+    As the information does not disclose the commission of any cognizable
+    offence and contains no identifying particular capable of verification, the
+    entry is retained in the register pending further information.
+--------------------------------------------------------------------------------
+13. Action taken : Entered in the register. No investigation taken up for want of
+    ascertainable particulars. Beat officer advised to make general enquiry.
+
+     Signature of Officer-in-Charge : /s/ R. Selvaraj
+     Name and Rank................. : Thiru R. Selvaraj, Inspector of Police (PC No. 41207)
+--------------------------------------------------------------------------------
+
+ NOTE FOR THE CrimeNet AI PIPELINE
+ This item is included deliberately to exercise the INSUFFICIENT EVIDENCE
+ pathway. When CASE-512 is analysed the platform must decline to produce a
+ network, must state INSUFFICIENT EVIDENCE and must name the missing elements
+ (identity, location, time, corroborating record) rather than infer them.
+
+--------------------------------------------------------------------------------
+ Document reference : Tip Register Entry No. 0731/2025 (synthetic)
+ Ingested into CrimeNet AI as : EV-5120   (Case CASE-512)
+ Classification : SYNTHETIC DEMONSTRATION DATA
+--------------------------------------------------------------------------------

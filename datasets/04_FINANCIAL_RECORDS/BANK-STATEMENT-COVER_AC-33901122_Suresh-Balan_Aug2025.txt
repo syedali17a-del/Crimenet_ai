@@ -1,0 +1,36 @@
+================================================================================
+            SYNTHETIC DEMONSTRATION DATA - NOT A REAL BANK STATEMENT            
+   Generated for the CrimeNet AI prototype. No real person, vehicle, account,   
+         case, police station, bank or telecom operator is represented.         
+         Not evidence. Not for operational, legal or investigative use.         
+================================================================================
+
+                        BHARAT COASTAL BANK (SYNTHETIC)                         
+                         CERTIFIED STATEMENT OF ACCOUNT                         
+
+--------------------------------------------------------------------------------
+  Account number................... : A/C 33901122
+  Account holder................... : Suresh Balan
+  Account type..................... : SB
+  Branch........................... : Guindy Industrial Estate Branch
+  IFSC............................. : BCBK0003390
+  Statement period................. : 18/08/2025 to 25/08/2025
+  Opening balance (INR)............ : 184,500.00
+  Number of transactions........... : 58
+  Total value (INR)................ : 1,356,914.75
+  Produced against................. : CASE-305 / BANK / 01 dated 22/08/2025
+  System evidence reference........ : EV-3070
+--------------------------------------------------------------------------------
+
+ REMARKS OF THE PRODUCING OFFICER
+
+ The statement is produced in machine-readable form. Amounts, references and
+ counterparty particulars are fictional. The transaction pattern on 22/08/2025
+ between 14:00 and 15:00 hrs is materially denser than the account baseline of
+ approximately two transactions per day; the pattern is stated as a fact of the
+ record and carries NO implication of wrongdoing.
+
+ A burst of activity is a statistical observation, not an offence, and not
+ evidence of any offence. It is furnished so that the analytical platform can
+ flag it for human review.
+--------------------------------------------------------------------------------

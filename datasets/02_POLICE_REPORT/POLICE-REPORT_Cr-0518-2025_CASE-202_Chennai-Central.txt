@@ -1,0 +1,74 @@
+================================================================================
+            SYNTHETIC DEMONSTRATION DATA - NOT A REAL POLICE REPORT             
+   Generated for the CrimeNet AI prototype. No real person, vehicle, account,   
+         case, police station, bank or telecom operator is represented.         
+         Not evidence. Not for operational, legal or investigative use.         
+================================================================================
+
+                  POLICE REPORT - INVESTIGATION PROGRESS NOTE                   
+                         (Case Diary Extract - Part I)                          
+
+--------------------------------------------------------------------------------
+  Police Station................... : Chennai Central (synthetic)
+  Crime Number..................... : Cr. No. 0518/2025
+  Sections......................... : BNS 2023 - ss. 305(a), 317(2) r/w 3(5)
+  Internal case reference.......... : CASE-202  (Coordinated Property Crime)
+  Report date and time............. : 18/08/2025, 10:30 hrs
+  Reporting officer................ : Tmt. S. Bhuvaneswari, Sub-Inspector of Police (PC No. 58811)
+  Investigating officer............ : Thiru R. Selvaraj, Inspector of Police (PC No. 41207)
+  Case diary part.................. : CD No. 03 of 2025 (CASE-202)
+--------------------------------------------------------------------------------
+
+ 1. SUBJECT
+    Observations recorded at Chennai Central on the morning of 18/08/2025 in
+    connection with reported property offences in the T Nagar and Chennai
+    Central corridors.
+
+ 2. OBSERVATIONS RECORDED
+
+    Sl.  Time    Observation
+    --------------------------------------------------------------------------
+    1.   10:05   Vehicle bearing registration TN01AB1234 was observed at
+                 Chennai Central. The vehicle was stationary for approximately
+                 four minutes on the eastern approach road.
+
+    2.   10:05   One Thiru R. Kumar was recorded as the person using the said
+                 vehicle at that time. Identity was recorded as stated at the
+                 spot and has NOT been documentarily verified.
+
+    3.   10:12   Thiru Arun Selvam was observed at Chennai Central. He was seen
+                 in the same public area. No interaction with the occupant of
+                 TN01AB1234 was observed or recorded.
+
+    4.   10:18   Tmt. Meena Raghavan, witness, reported being present at
+                 Chennai Central. Her statement is recorded separately under
+                 s.180 BNSS (erstwhile s.161 Cr.P.C.).
+
+ 3. ASSESSMENT
+    The observations establish presence and vehicle usage at a common location
+    within a thirteen-minute window. Presence at a common location does not by
+    itself establish a meeting, an association or an offence. No determination
+    of involvement has been made against any person named in this report.
+
+ 4. ACTION TAKEN
+    (a) Witness statement of Tmt. Meena Raghavan recorded.
+    (b) CCTV still from the Chennai Central approach camera secured and
+        forwarded to the Intelligence Analysis Cell (see image folder).
+    (c) Requisition issued to the Regional Transport Office for the registered
+        ownership particulars of TN01AB1234. Reply awaited.
+
+ 5. FURTHER ACTION PROPOSED
+    (a) Obtain authorised vehicle ownership record for TN01AB1234.
+    (b) Obtain documentary identity proof for the person recorded as R. Kumar.
+    (c) Verify whether the person recorded as R. Kumar in this case and the
+        person recorded as Ravi Kumar in CASE-101 are the same individual.
+        Until such verification, the two records are to be treated as SEPARATE.
+
+  Signature of reporting officer... : /s/ S. Bhuvaneswari
+  Countersigned.................... : /s/ R. Selvaraj, Inspector of Police
+
+--------------------------------------------------------------------------------
+ Document reference : Cr. No. 0518/2025, CD-03 (synthetic)
+ Ingested into CrimeNet AI as : EV-2041   (Case CASE-202)
+ Classification : SYNTHETIC DEMONSTRATION DATA
+--------------------------------------------------------------------------------

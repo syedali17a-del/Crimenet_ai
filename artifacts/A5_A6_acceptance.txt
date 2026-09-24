@@ -1,0 +1,14 @@
+
+====================================================================================================
+A5 — READ-ACCESS AUDIT   (GET /api/evidence/EV-1024)
+====================================================================================================
+EVIDENCE_VIEWED records before this read: 0  -> after: 0
+newest record:
+Traceback (most recent call last):
+  File "/home/user/scripts/partA_proofs.py", line 175, in <module>
+    SECTIONS[name](tok)
+    ~~~~~~~~~~~~~~^^^^^
+  File "/home/user/scripts/partA_proofs.py", line 77, in a5
+    print(json.dumps(records[0], indent=2, ensure_ascii=False))
+                     ~~~~~~~^^^
+IndexError: list index out of range

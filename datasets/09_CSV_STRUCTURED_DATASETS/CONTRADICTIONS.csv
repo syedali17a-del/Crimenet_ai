@@ -1,0 +1,2 @@
+CONTRADICTION_ID,CASE_ID,ENTITY_IDS,EVIDENCE_IDS,STATEMENT,IMPACT,STATUS,CLASSIFICATION
+CON-001,CASE-202,PER-001 | PER-002,EV-2041 | EV-2043,EV-2043 places Ravi Kumar at Madurai at 10:00 on 18 August while EV-2041 records the same identity profile at Chennai Central at 10:05 on 18 August.,Weakens the Ravi Kumar ↔ R. Kumar identity hypothesis until independent identity confirmation is obtained.,OPEN,SYNTHETIC DEMONSTRATION DATA

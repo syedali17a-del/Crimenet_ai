@@ -1,0 +1,73 @@
+
+====================================================================================================
+A2 — EXPLAINABLE KEY INFLUENCERS   (POST /api/analysis/network)
+====================================================================================================
+engine=NetworkX  nodes=29  edges=28  communities=7  modularity=0.6327
+
+--- DEGREE_CENTRALITY (full) ---
+#1  Ravi Kumar                 [PERSON      ] score=0.1429
+     interpretation: This person appears in 1 case (CASE-101), is connected to 4 distinct entities (1 location, 1 organisation and 1 phone number), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 4 evidence-linked relationships back it. Locations recorded on this entity: Chennai Central, Guindy Industrial Estate.
+     interpretation_basis: 4 evidence-linked relationships, 1 cases, 2 communities touched, present in 1 case (CASE-101)
+#2  TN01AB1234                 [VEHICLE     ] score=0.1429
+     interpretation: This vehicle appears in 3 cases (CASE-101, CASE-202, CASE-305), is connected to 4 distinct entities (4 people), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 4 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     interpretation_basis: 4 evidence-linked relationships, 3 cases, 2 communities touched, present in 3 cases (CASE-101, CASE-202, CASE-305)
+#3  Chennai Central            [LOCATION    ] score=0.1429
+     interpretation: This location appears in 2 cases (CASE-101, CASE-202), is connected to 4 distinct entities (4 people), sits inside one community but on the shortest evidence paths between the entities in it. 4 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     interpretation_basis: 4 evidence-linked relationships, 2 cases, 1 communities touched, present in 2 cases (CASE-101, CASE-202)
+#4  Arun Selvam                [PERSON      ] score=0.1429
+     interpretation: This person appears in 3 cases (CASE-101, CASE-202, CASE-305), is connected to 4 distinct entities (2 locations, 1 phone number and 1 vehicle), and links 3 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 4 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding. Locations recorded on this entity: Chennai Central, Chennai Port.
+     interpretation_basis: 4 evidence-linked relationships, 3 cases, 3 communities touched, present in 3 cases (CASE-101, CASE-202, CASE-305)
+#5  R. Kumar                   [PERSON      ] score=0.1071
+     interpretation: This person appears in 1 case (CASE-202), is connected to 3 distinct entities (1 device, 1 location and 1 vehicle), sits inside one community but on the shortest evidence paths between the entities in it. 3 evidence-linked relationships back it. Locations recorded on this entity: Chennai Central.
+     interpretation_basis: 3 evidence-linked relationships, 1 cases, 1 communities touched, present in 1 case (CASE-202)
+#6  Chennai Port               [LOCATION    ] score=0.1071
+     interpretation: This location appears in 2 cases (CASE-202, CASE-305), is connected to 3 distinct entities (2 people and 1 organisation), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 3 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     interpretation_basis: 3 evidence-linked relationships, 2 cases, 2 communities touched, present in 2 cases (CASE-202, CASE-305)
+#7  +91 98400 ••••7            [PHONE       ] score=0.1071
+     interpretation: This phone number appears in 2 cases (CASE-101, CASE-202), is connected to 3 distinct entities (2 people and 1 phone number), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 3 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     interpretation_basis: 3 evidence-linked relationships, 2 cases, 2 communities touched, present in 2 cases (CASE-101, CASE-202)
+#8  TN07XY4455                 [VEHICLE     ] score=0.1071
+     interpretation: This vehicle appears in 1 case (CASE-101), is connected to 3 distinct entities (2 people and 1 location), sits inside one community but on the shortest evidence paths between the entities in it. 3 evidence-linked relationships back it.
+     interpretation_basis: 3 evidence-linked relationships, 1 cases, 1 communities touched, present in 1 case (CASE-101)
+#9  A/C ••••0987               [ACCOUNT     ] score=0.1071
+     interpretation: This bank account appears in 1 case (CASE-305), is connected to 3 distinct entities (2 people and 1 bank account), sits inside one community but on the shortest evidence paths between the entities in it. 3 evidence-linked relationships back it.
+     interpretation_basis: 3 evidence-linked relationships, 1 cases, 1 communities touched, present in 1 case (CASE-305)
+#10 +91 98400 ••••5            [PHONE       ] score=0.0714
+     interpretation: This phone number appears in 2 cases (CASE-101, CASE-202), is connected to 2 distinct entities (1 person and 1 phone number), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 2 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     interpretation_basis: 2 evidence-linked relationships, 2 cases, 2 communities touched, present in 2 cases (CASE-101, CASE-202)
+
+--- BETWEENNESS_CENTRALITY (full) ---
+#1  Arun Selvam                [PERSON      ] score=0.101
+     interpretation: This person appears in 3 cases (CASE-101, CASE-202, CASE-305), is connected to 4 distinct entities (2 locations, 1 phone number and 1 vehicle), and links 3 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 4 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding. Locations recorded on this entity: Chennai Central, Chennai Port.
+     interpretation_basis: 4 evidence-linked relationships, 3 cases, 3 communities touched, present in 3 cases (CASE-101, CASE-202, CASE-305)
+#2  Chennai Port               [LOCATION    ] score=0.0688
+     interpretation: This location appears in 2 cases (CASE-202, CASE-305), is connected to 3 distinct entities (2 people and 1 organisation), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 3 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     interpretation_basis: 3 evidence-linked relationships, 2 cases, 2 communities touched, present in 2 cases (CASE-202, CASE-305)
+#3  Chennai Central            [LOCATION    ] score=0.0635
+     interpretation: This location appears in 2 cases (CASE-101, CASE-202), is connected to 4 distinct entities (4 people), sits inside one community but on the shortest evidence paths between the entities in it. 4 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     interpretation_basis: 4 evidence-linked relationships, 2 cases, 1 communities touched, present in 2 cases (CASE-101, CASE-202)
+#4  TN01AB1234                 [VEHICLE     ] score=0.0608
+     interpretation: This vehicle appears in 3 cases (CASE-101, CASE-202, CASE-305), is connected to 4 distinct entities (4 people), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 4 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     interpretation_basis: 4 evidence-linked relationships, 3 cases, 2 communities touched, present in 3 cases (CASE-101, CASE-202, CASE-305)
+#5  Ravi Kumar                 [PERSON      ] score=0.0534
+     interpretation: This person appears in 1 case (CASE-101), is connected to 4 distinct entities (1 location, 1 organisation and 1 phone number), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 4 evidence-linked relationships back it. Locations recorded on this entity: Chennai Central, Guindy Industrial Estate.
+     interpretation_basis: 4 evidence-linked relationships, 1 cases, 2 communities touched, present in 1 case (CASE-101)
+#6  +91 98400 ••••7            [PHONE       ] score=0.045
+     interpretation: This phone number appears in 2 cases (CASE-101, CASE-202), is connected to 3 distinct entities (2 people and 1 phone number), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 3 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     interpretation_basis: 3 evidence-linked relationships, 2 cases, 2 communities touched, present in 2 cases (CASE-101, CASE-202)
+#7  R. Kumar                   [PERSON      ] score=0.0375
+     interpretation: This person appears in 1 case (CASE-202), is connected to 3 distinct entities (1 device, 1 location and 1 vehicle), sits inside one community but on the shortest evidence paths between the entities in it. 3 evidence-linked relationships back it. Locations recorded on this entity: Chennai Central.
+     interpretation_basis: 3 evidence-linked relationships, 1 cases, 1 communities touched, present in 1 case (CASE-202)
+#8  Coastal Logistics Pvt Ltd  [ORGANIZATION] score=0.0344
+     interpretation: This organisation appears in 2 cases (CASE-305, CASE-407), is connected to 2 distinct entities (1 location and 1 person), sits inside one community but on the shortest evidence paths between the entities in it. 2 evidence-linked relationships back it. Cross-case overlap such as this is a lead for an investigator to check, not a finding.
+     interpretation_basis: 2 evidence-linked relationships, 2 cases, 1 communities touched, present in 2 cases (CASE-305, CASE-407)
+#9  Ravi K.                    [PERSON      ] score=0.0146
+     interpretation: This person appears in 1 case (CASE-305), is connected to 2 distinct entities (1 location and 1 vehicle), and links 2 communities that otherwise have no shared entity (one of 7 bridging entities in this projection). 2 evidence-linked relationships back it. Locations recorded on this entity: Chennai Port.
+     interpretation_basis: 2 evidence-linked relationships, 1 cases, 2 communities touched, present in 1 case (CASE-305)
+#10 A/C ••••0987               [ACCOUNT     ] score=0.0132
+     interpretation: This bank account appears in 1 case (CASE-305), is connected to 3 distinct entities (2 people and 1 bank account), sits inside one community but on the shortest evidence paths between the entities in it. 3 evidence-linked relationships back it.
+     interpretation_basis: 3 evidence-linked relationships, 1 cases, 1 communities touched, present in 1 case (CASE-305)
+
+interpretation strings: 12 distinct of 20 rows
+safety_note: Centrality measures structural position in the evidence graph only. It is not evidence of leadership, control or criminality.
+interpretations containing no number: 0  (must be 0)

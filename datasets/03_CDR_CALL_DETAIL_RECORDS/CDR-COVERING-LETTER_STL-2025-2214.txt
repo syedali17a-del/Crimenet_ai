@@ -1,0 +1,53 @@
+================================================================================
+       SYNTHETIC DEMONSTRATION DATA - NOT A REAL TELECOM COVERING LETTER        
+   Generated for the CrimeNet AI prototype. No real person, vehicle, account,   
+         case, police station, bank or telecom operator is represented.         
+         Not evidence. Not for operational, legal or investigative use.         
+================================================================================
+
+                SYNTHETIC TELECOM LTD. - LAW ENFORCEMENT LIAISON                
+              COVERING LETTER - PRODUCTION OF CALL DETAIL RECORDS               
+
+--------------------------------------------------------------------------------
+  Our reference.................... : STL/LEA/CHN/2025/08/2214
+  Your requisition................. : Cr. No. 0412/2025 / CDR / 03 dated 12/08/2025
+  Date of production............... : 14/08/2025
+  Produced to...................... : Thiru R. Selvaraj, Inspector of Police (PC No. 41207)
+--------------------------------------------------------------------------------
+
+ 1. RECORDS FURNISHED
+
+    (a) +91 98400 12345  -  10/08/2025 to 14/08/2025  (file: CDR_9840012345_...csv)
+    (b) +91 98400 99887  -  10/08/2025 to 14/08/2025  (file: CDR_9840099887_...csv)
+    (c) Cell site master for the CGIs appearing above (CELL-SITE-MASTER.csv)
+
+ 2. RECORDS NOT FURNISHED  ** THIS IS A DELIBERATE INFORMATION GAP **
+
+    Records for the period 15/08/2025 to 19/08/2025 are NOT included in this
+    production. The requisitioned dump was generated before that period closed.
+    A fresh requisition is required for the later period.
+
+    Consequence for the investigation: there is NO call-detail evidence covering
+    18/08/2025. The location of either subscriber on 18/08/2025 therefore CANNOT
+    be established from telecom metadata, and the conflict between the Chennai
+    Central observation (EV-2041) and the Madurai claim (EV-2043) CANNOT be
+    resolved from these records. The platform must report this as an information
+    gap and must not infer a location.
+
+ 3. LIMITATIONS
+    (a) No content of communication is held or produced.
+    (b) Cell site indicates the serving cell only; it is an approximation of
+        location and is not a positioning fix.
+    (c) Subscriber particulars reflect the records of the operator and are not
+        independent proof of the identity of the person using the handset.
+
+ 4. Certificate under Section 63(4)(c) BSA 2023 is enclosed separately.
+
+                                       For Synthetic Telecom Ltd.
+                                       /s/ Nodal Officer (LEA), Chennai Circle
+
+--------------------------------------------------------------------------------
+ Document reference : STL/LEA/CHN/2025/08/2214 (synthetic)
+ Ingested into CrimeNet AI as : EV-1025   (Case CASE-101)
+ Classification : SYNTHETIC DEMONSTRATION DATA
+--------------------------------------------------------------------------------

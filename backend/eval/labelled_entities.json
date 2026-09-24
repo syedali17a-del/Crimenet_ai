@@ -1,0 +1,372 @@
+{
+ "_about": [
+  "PHASE 6 - labelled ground truth for entity extraction.",
+  "Written by hand from the text of each evidence document (not copied from the",
+  "extractor's output), covering the five seeded cases CASE-101, CASE-202,",
+  "CASE-305, CASE-407 and CASE-512, plus the real FIR PDF from the dataset pack",
+  "(keyed by file name; read through the same pypdf text-layer path the API uses).",
+  "Types evaluated: PERSON, ORGANIZATION, LOCATION, VEHICLE, PHONE, ACCOUNT,",
+  "DEVICE, DATE, ALIAS. ALIAS was added in the second hardening pass: the",
+  "abbreviated-name extractor was the weakest type and was not scored at all,",
+  "which meant a 99% F1 headline silently excluded it.",
+  "DATE values are compared by day + month (the year is implied by the case timeline).",
+  "NEGATIVE CASES were added in the third pass (_negative_cases below). Precision-only scoring can be passed by an extractor that invents confident nonsense in the seeded documents' style, so each negative case asserts BOTH an entity that must NOT appear and an entity that must still appear - a fix that simply switches the heuristic off fails the must_appear half.",
+  "must_appear values are written in the pipeline's canonical form ('Ravi Kumar', '12 August'), so a passing assertion also proves the transliteration + normalisation step ran; must_not_appear values are written as the raw spans the bug produced. The harness matches both the normalised value and the raw surface span, so an assertion cannot be dodged by re-normalising the same wrong span."
+ ],
+ "EV-1024": {
+  "PERSON": [
+   "Ravi Kumar"
+  ],
+  "VEHICLE": [
+   "TN01AB1234"
+  ],
+  "LOCATION": [
+   "Chennai Central",
+   "Guindy Industrial Estate"
+  ],
+  "PHONE": [
+   "+919840012345"
+  ],
+  "DATE": [
+   "10 August",
+   "12 August"
+  ]
+ },
+ "EV-1025": {
+  "PERSON": [
+   "Arun Selvam"
+  ],
+  "LOCATION": [
+   "Guindy Industrial Estate"
+  ],
+  "PHONE": [
+   "+919840012345",
+   "+919840099887"
+  ],
+  "DATE": [
+   "12 August"
+  ]
+ },
+ "EV-1026": {
+  "PERSON": [
+   "Karthik Rajan",
+   "Mohan Das",
+   "Ravi Kumar"
+  ],
+  "ORGANIZATION": [
+   "Metro Auto Spares"
+  ],
+  "LOCATION": [
+   "Guindy Industrial Estate",
+   "Anna Nagar"
+  ],
+  "VEHICLE": [
+   "TN07XY4455"
+  ],
+  "DATE": [
+   "12 August"
+  ]
+ },
+ "EV-2041": {
+  "PERSON": [
+   "R. Kumar",
+   "Arun Selvam",
+   "Meena Raghavan"
+  ],
+  "LOCATION": [
+   "Chennai Central"
+  ],
+  "VEHICLE": [
+   "TN01AB1234",
+   "TN09KL8899"
+  ],
+  "PHONE": [
+   "+919840012345",
+   "+919790011223"
+  ],
+  "DATE": [
+   "18 August"
+  ],
+  "ALIAS": [
+   "R. Kumar"
+  ]
+ },
+ "EV-2042": {
+  "PERSON": [
+   "R. Kumar"
+  ],
+  "LOCATION": [
+   "Chennai Central"
+  ],
+  "VEHICLE": [
+   "TN01AB1234"
+  ],
+  "DEVICE": [
+   "IMEI 356938035643809"
+  ],
+  "DATE": [
+   "18 August"
+  ],
+  "ALIAS": [
+   "R. Kumar"
+  ]
+ },
+ "EV-2043": {
+  "PERSON": [
+   "Ravi Kumar",
+   "Vignesh Anand",
+   "Farhan Ali"
+  ],
+  "LOCATION": [
+   "Chennai Central",
+   "T Nagar",
+   "Madurai"
+  ],
+  "VEHICLE": [
+   "TN09KL8899"
+  ],
+  "PHONE": [
+   "+919840099887"
+  ],
+  "DATE": [
+   "18 August",
+   "19 August"
+  ]
+ },
+ "EV-3070": {
+  "PERSON": [
+   "Suresh Balan",
+   "Divya Nair",
+   "Lakshmi Iyer"
+  ],
+  "ACCOUNT": [
+   "33901122",
+   "44120987"
+  ],
+  "PHONE": [
+   "+919566778899"
+  ],
+  "DATE": [
+   "22 August"
+  ]
+ },
+ "EV-3071": {
+  "PERSON": [
+   "Ravi K.",
+   "Arun Selvam"
+  ],
+  "ORGANIZATION": [
+   "Coastal Logistics Pvt Ltd"
+  ],
+  "LOCATION": [
+   "Chennai Port"
+  ],
+  "VEHICLE": [
+   "TN01AB1234"
+  ],
+  "DATE": [
+   "25 August"
+  ],
+  "ALIAS": [
+   "Ravi K."
+  ]
+ },
+ "EV-4090": {
+  "PERSON": [
+   "Prakash Menon",
+   "Anitha Rao",
+   "Sanjay Prabhu"
+  ],
+  "ORGANIZATION": [
+   "Coastal Logistics Pvt Ltd"
+  ],
+  "LOCATION": [
+   "Coimbatore RS Puram"
+  ],
+  "VEHICLE": [
+   "TN22CD3311",
+   "TN38EF7712"
+  ],
+  "DATE": [
+   "26 August",
+   "27 August"
+  ]
+ },
+ "EV-5120": {},
+ "FIR_0412-2025_CASE-101_Chennai-Central.pdf": {
+  "_source": "datasets/01_FIR/FIR_0412-2025_CASE-101_Chennai-Central.pdf - real PDF read through the same pypdf text-layer path the API uses. Labelled by hand from the extracted text; it is the document that exposed the ALIAS false positives, so it is scored by the harness rather than checked by eye.",
+  "PERSON": [
+   "S. Vasanthi",
+   "M. Ganesan",
+   "R. Selvaraj",
+   "S. Bhuvaneswari",
+   "Ravi Kumar"
+  ],
+  "ALIAS": [
+   "S. Vasanthi",
+   "M. Ganesan",
+   "R. Selvaraj",
+   "S. Bhuvaneswari"
+  ],
+  "ORGANIZATION": [],
+  "LOCATION": [
+   "Chennai Central",
+   "Guindy Industrial Estate",
+   "Wall Tax Road"
+  ],
+  "VEHICLE": [
+   "TN01AB1234"
+  ],
+  "PHONE": [
+   "+919840012345"
+  ],
+  "DATE": [
+   "10/08/2025",
+   "11/08/2025"
+  ]
+ },
+ "_negative_cases": [
+  {
+   "id": "NEG-HI-01",
+   "language": "hi",
+   "why": "the exact false positive reported after the second pass: 'फोन' (the Hindi word for 'phone') sat at a sentence boundary inside a sentence containing the observation verb 'गया', so the sentence-initial-subject rule proposed it as a PERSON.",
+   "text": "रवि कुमार को 12 अगस्त को वाहन TN01AB1234 के साथ चेन्नई सेंट्रल में देखा गया। फोन +919840012345 दर्ज किया गया।",
+   "must_not_appear": [
+    {
+     "entity_type": "PERSON",
+     "value": "फोन"
+    },
+    {
+     "entity_type": "LOCATION",
+     "value": "फोन"
+    }
+   ],
+   "must_appear": [
+    {
+     "entity_type": "PERSON",
+     "value": "Ravi Kumar"
+    },
+    {
+     "entity_type": "PHONE",
+     "value": "+919840012345"
+    },
+    {
+     "entity_type": "DATE",
+     "value": "12 August"
+    }
+   ]
+  },
+  {
+   "id": "NEG-HI-02",
+   "language": "hi",
+   "why": "common noun immediately before a digit, followed by the locative postposition 'पर': 'मोबाइल फोन' became a LOCATION hint even after it stopped being a PERSON.",
+   "text": "मोबाइल फोन 9840012345 पर 12 अगस्त को कॉल दर्ज किया गया। रवि कुमार को वाहन TN01AB1234 के साथ देखा गया।",
+   "must_not_appear": [
+    {
+     "entity_type": "PERSON",
+     "value": "मोबाइल फोन"
+    },
+    {
+     "entity_type": "PERSON",
+     "value": "मोबाइल"
+    },
+    {
+     "entity_type": "PERSON",
+     "value": "फोन"
+    },
+    {
+     "entity_type": "LOCATION",
+     "value": "मोबाइल फोन"
+    }
+   ],
+   "must_appear": [
+    {
+     "entity_type": "PERSON",
+     "value": "Ravi Kumar"
+    },
+    {
+     "entity_type": "VEHICLE",
+     "value": "TN01AB1234"
+    }
+   ]
+  },
+  {
+   "id": "NEG-HI-03",
+   "language": "hi",
+   "why": "record noun ('संदेश' = message) in sentence-initial position immediately before a date, in a sentence whose verb form contains the observation trigger 'गया'.",
+   "text": "संदेश 11 अगस्त को भेजा गया। रवि कुमार को वाहन TN01AB1234 के साथ देखा गया।",
+   "must_not_appear": [
+    {
+     "entity_type": "PERSON",
+     "value": "संदेश"
+    },
+    {
+     "entity_type": "LOCATION",
+     "value": "संदेश"
+    }
+   ],
+   "must_appear": [
+    {
+     "entity_type": "PERSON",
+     "value": "Ravi Kumar"
+    },
+    {
+     "entity_type": "DATE",
+     "value": "11 August"
+    }
+   ]
+  },
+  {
+   "id": "NEG-HI-04",
+   "language": "hi",
+   "why": "complaint noun ('शिकायत' = complaint) in sentence-initial position immediately before a date - the same shape as the reported bug with a different common noun.",
+   "text": "शिकायत 12 अगस्त को दर्ज की गई। रवि कुमार का फोन +919840012345 दर्ज किया गया।",
+   "must_not_appear": [
+    {
+     "entity_type": "PERSON",
+     "value": "शिकायत"
+    },
+    {
+     "entity_type": "LOCATION",
+     "value": "शिकायत"
+    }
+   ],
+   "must_appear": [
+    {
+     "entity_type": "PERSON",
+     "value": "Ravi Kumar"
+    },
+    {
+     "entity_type": "PHONE",
+     "value": "+919840012345"
+    }
+   ]
+  },
+  {
+   "id": "NEG-TA-01",
+   "language": "ta",
+   "why": "Tamil device noun ('செல்போன்' = cell phone) opening the second sentence of the Tamil FIR sentence that the second pass fixed, immediately before a phone number.",
+   "text": "ரவி குமார் 12 ஆகஸ்ட் அன்று TN01AB1234 வாகனத்துடன் சென்னை சென்ட்ரலில் காணப்பட்டார். செல்போன் +919840012345 பதிவு செய்யப்பட்டது.",
+   "must_not_appear": [
+    {
+     "entity_type": "PERSON",
+     "value": "செல்போன்"
+    },
+    {
+     "entity_type": "LOCATION",
+     "value": "செல்போன்"
+    }
+   ],
+   "must_appear": [
+    {
+     "entity_type": "PERSON",
+     "value": "Ravi Kumar"
+    },
+    {
+     "entity_type": "PHONE",
+     "value": "+919840012345"
+    }
+   ]
+  }
+ ]
+}

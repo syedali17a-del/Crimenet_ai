@@ -1,0 +1,363 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   CRIMENET AI — DESIGN SYSTEM (single source of truth)
+   White + blue. Glassmorphism used deliberately and sparingly.
+   Every colour, radius, blur and shadow in the product comes from a token
+   below; pages never hand-pick colours.
+   ========================================================================== */
+@theme {
+  /* --- palette (spec) ---------------------------------------------------- */
+  --color-bg: #F4F7FC;                 /* soft off-white: less glare over long sessions */
+  --color-surface: rgba(255, 255, 255, 0.65);   /* glass panel base */
+  --color-surface-solid: #FFFFFF;      /* tables, evidence text, form inputs */
+  --color-border: rgba(15, 42, 89, 0.10);
+  --color-primary: #1450C4;            /* buttons, active states, links */
+  --color-primary-deep: #0B2F73;       /* headers, nav, high-emphasis text */
+  --color-primary-soft: #E8F0FE;       /* subtle backgrounds, selected rows */
+  --color-accent: #2FA7DB;             /* secondary blue-cyan: charts, graph edges */
+  --color-success: #1E8E5A;
+  --color-warning: #B8791A;
+  --color-danger: #C4341F;
+  --color-text: #101828;
+  --color-text-muted: #5B6B85;
+
+  /* --- legacy token names kept as aliases so no working page breaks ------ */
+  --color-navy-950: #061532;
+  --color-navy-900: #0B2F73;
+  --color-navy-800: #1A2A45;
+  --color-navy-700: #5B6B85;
+  --color-brand-700: #1450C4;
+  --color-brand-600: #1450C4;
+  --color-brand-500: #2A6FE0;
+  --color-brand-400: #4C8FEA;
+  --color-brand-300: #9DC0F5;
+  --color-brand-200: #CBDDFB;
+  --color-brand-100: #E8F0FE;
+  --color-brand-50: #F3F7FE;
+  --color-mist-50: #F7FAFD;
+  --color-mist-100: #EDF2FA;
+  --color-mist-200: #DEE7F5;
+
+  /* --- geometry & motion ------------------------------------------------- */
+  --radius-panel: 16px;
+  --shadow-glass: 0 8px 32px rgba(15, 42, 89, 0.08);
+  --shadow-solid: 0 1px 2px rgba(15, 42, 89, 0.06), 0 10px 24px -18px rgba(15, 42, 89, 0.35);
+  --shadow-lift: 0 14px 34px -18px rgba(15, 42, 89, 0.32);
+  --ease-hover: 150ms ease;
+
+  /* --- typography -------------------------------------------------------- */
+  /* The project already ships system font stacks (no webfont is fetched, so the
+     offline preview renders identically). No second family is introduced here. */
+  --font-sans: var(--font-latin, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif);
+  --font-mono: ui-monospace, "SFMono-Regular", "JetBrains Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+}
+
+@layer base {
+  html, body, #root { height: 100%; }
+  body {
+    margin: 0;
+    background:
+      radial-gradient(1100px 520px at 8% -10%, #E8F0FE 0%, rgba(232, 240, 254, 0) 62%),
+      radial-gradient(900px 460px at 100% 0%, #EAF4FE 0%, rgba(234, 244, 254, 0) 58%),
+      var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 14.5px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  * { scrollbar-width: thin; scrollbar-color: #CBDDFB transparent; }
+  *::-webkit-scrollbar { width: 8px; height: 8px; }
+  *::-webkit-scrollbar-thumb { background: #C7D8F3; border-radius: 99px; }
+  *::-webkit-scrollbar-track { background: transparent; }
+  h1, h2, h3, h4 { letter-spacing: -0.01em; }
+  /* One focus ring for every interactive element: 2px primary, 2px offset. */
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* --- surfaces ---------------------------------------------------------- */
+
+  /* Glass: top nav, side panel, modals/drawers, evidence header bar, KPI cards.
+     Never behind dense tables or long body copy. */
+  .glass {
+    background: var(--color-surface);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-panel);
+    box-shadow: var(--shadow-glass);
+  }
+  .glass-strong {
+    background: var(--color-surface);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-panel);
+    box-shadow: var(--shadow-glass);
+  }
+  /* BUG 2 — solid glass for TEXT-BEARING OVERLAYS (menus, popovers, dropdowns).
+     Blur alone does not obscure small high-contrast text sitting directly behind
+     the panel: the profile menu opens over the opaque honesty strip, whose muted
+     label ghosted through a 65%-alpha panel and crossed the Sign Out button.
+     Overlay surfaces the user must read or click are therefore effectively
+     opaque; blur stays on large surfaces that carry no small text. */
+  .glass-solid {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(20px) saturate(120%);
+    -webkit-backdrop-filter: blur(20px) saturate(120%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-panel);
+    box-shadow: 0 18px 44px -22px rgba(15, 42, 89, 0.38), 0 2px 6px rgba(15, 42, 89, 0.06);
+  }
+  /* Solid: anything read closely. */
+  .surface-solid {
+    background: var(--color-surface-solid);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-panel);
+    box-shadow: var(--shadow-solid);
+  }
+  .surface-soft { background: var(--color-primary-soft); border: 1px solid var(--color-border); border-radius: var(--radius-panel); }
+
+  /* one consistent hover state for clickable cards */
+  .lift { transition: transform var(--ease-hover), box-shadow var(--ease-hover), border-color var(--ease-hover); }
+  .lift:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); border-color: rgba(20, 80, 196, 0.28); }
+
+  /* legacy alias kept so no working component breaks (old 'neu' style) */
+  .neu { background: var(--color-surface-solid); border: 1px solid var(--color-border); box-shadow: var(--shadow-solid); }
+  .neu:hover { border-color: rgba(20, 80, 196, 0.28); }
+  .neu-pressed { background: var(--color-primary-soft); }
+
+  .focus-ring:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+  .hairline { border-color: var(--color-border); }
+
+  /* --- typography -------------------------------------------------------- */
+  .page-title { font-size: 28px; line-height: 1.2; font-weight: 600; color: var(--color-primary-deep); }
+  .section-header {
+    font-size: 16px; line-height: 1.3; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.04em; color: var(--color-text-muted);
+  }
+  /* dense-card eyebrow (legacy sizing, same muted token) */
+  .card-title {
+    font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+  .body-text { font-size: 14.5px; line-height: 1.5; color: var(--color-text); }
+  .data-num { font-variant-numeric: tabular-nums; }
+  .mono-id {
+    font-family: var(--font-mono); font-variant-numeric: tabular-nums;
+    letter-spacing: 0; font-size: 12px;
+  }
+  .reading-panel { font-size: 15px; line-height: 1.75; color: var(--color-text); }
+  .reading-panel p + p { margin-top: 0.75rem; }
+
+  /* --- status / candidate visual language ------------------------------- */
+  /* VERIFIED  -> solid success, filled badge */
+  .status-verified {
+    background: var(--color-success); color: #fff; border: 1px solid var(--color-success);
+  }
+  /* CANDIDATE -> outlined warning: must never read as settled as VERIFIED */
+  .status-candidate {
+    background: transparent; color: var(--color-warning);
+    border: 1px solid var(--color-warning); border-style: solid;
+  }
+  /* REJECTED  -> outlined danger, claim text struck through */
+  .status-rejected {
+    background: transparent; color: var(--color-danger); border: 1px dashed var(--color-danger);
+  }
+  .status-rejected-claim { text-decoration: line-through; text-decoration-thickness: 1.5px; }
+  /* INSUFFICIENT -> dashed muted */
+  .status-insufficient {
+    background: transparent; color: var(--color-text-muted);
+    border: 1px dashed var(--color-text-muted);
+  }
+
+  .banner-honesty {
+    background: #FFF8E8; border: 1px solid rgba(184, 121, 26, 0.35); color: #7A4F0B;
+    border-radius: 12px;
+  }
+
+  /* --- glass shimmer loading skeleton (never a spinner in a void) -------- */
+  .skeleton {
+    position: relative; overflow: hidden;
+    background: linear-gradient(90deg, rgba(232, 240, 254, 0.85) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(232, 240, 254, 0.85) 100%);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--color-border);
+  }
+  .skeleton::after {
+    content: ''; position: absolute; inset: 0; transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
+    animation: shimmer 1.4s infinite;
+  }
+}
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px) scale(0.995); } to { opacity: 1; transform: none; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+@keyframes pulseSoft { 0%,100% { opacity: 1; } 50% { opacity: 0.45; } }
+@keyframes dash { to { stroke-dashoffset: -18; } }
+
+.page-enter { animation: fadeUp 260ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.fade-in { animation: fadeIn 220ms ease both; }
+.stagger > * { animation: fadeUp 300ms cubic-bezier(0.22,1,0.36,1) both; }
+.stagger > *:nth-child(1) { animation-delay: 20ms; }
+.stagger > *:nth-child(2) { animation-delay: 60ms; }
+.stagger > *:nth-child(3) { animation-delay: 100ms; }
+.stagger > *:nth-child(4) { animation-delay: 140ms; }
+.stagger > *:nth-child(5) { animation-delay: 180ms; }
+.stagger > *:nth-child(6) { animation-delay: 220ms; }
+/* the class is also declared inside @layer components; keep the shimmer keyframes here */
+.skeleton::after { animation-name: shimmer; }
+.leaflet-container { font-family: var(--font-sans); background: #E8F0FE; }
+.leaflet-popup-content-wrapper { border-radius: 12px; box-shadow: 0 18px 40px -22px rgba(15,42,89,0.45); }
+
+/* ── Boot / entry choreography ─────────────────────────────────────────────── */
+@keyframes bootRing   { 0% { transform: scale(0.75); opacity: 0; } 55% { opacity: 0.55; } 100% { transform: scale(1.65); opacity: 0; } }
+@keyframes bootMark   { 0% { transform: scale(0.55) translateY(10px); opacity: 0; filter: blur(6px); }
+                        60% { transform: scale(1.06) translateY(0); opacity: 1; filter: blur(0); }
+                        100% { transform: scale(1) translateY(0); opacity: 1; } }
+@keyframes wordReveal { 0% { opacity: 0; letter-spacing: 0.42em; transform: translateY(6px); }
+                        100% { opacity: 1; letter-spacing: 0.12em; transform: none; } }
+@keyframes lineDraw   { to { stroke-dashoffset: 0; } }
+@keyframes floatSlow  { 0%,100% { transform: translate3d(0,0,0); } 50% { transform: translate3d(0,-14px,0); } }
+@keyframes gridDrift  { to { background-position: 60px 60px; } }
+@keyframes sheenPass  { 0% { transform: translateX(-120%) skewX(-18deg); } 100% { transform: translateX(220%) skewX(-18deg); } }
+@keyframes barGrow    { from { width: 0%; } to { width: 100%; } }
+@keyframes nodePulse  { 0%,100% { opacity: 0.35; r: 2.6; } 50% { opacity: 1; r: 3.6; } }
+@keyframes riseIn     { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes softGlow   { 0%,100% { opacity: 0.5; } 50% { opacity: 0.85; } }
+
+.boot-mark     { animation: bootMark 900ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.boot-ring     { animation: bootRing 2.2s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
+.boot-word     { animation: wordReveal 900ms cubic-bezier(0.16, 1, 0.3, 1) 260ms both; }
+.boot-exit     { animation: fadeIn 520ms ease reverse both; }
+.float-slow    { animation: floatSlow 9s ease-in-out infinite; }
+.rise-in       { animation: riseIn 640ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.rise-in-1     { animation-delay: 80ms; }
+.rise-in-2     { animation-delay: 170ms; }
+.rise-in-3     { animation-delay: 260ms; }
+.rise-in-4     { animation-delay: 350ms; }
+.draw-line     { stroke-dasharray: 120; stroke-dashoffset: 120; animation: lineDraw 1.5s ease forwards; }
+.node-pulse    { animation: nodePulse 3.4s ease-in-out infinite; }
+.soft-glow     { animation: softGlow 4.5s ease-in-out infinite; }
+
+.grid-drift {
+  background-image:
+    linear-gradient(rgba(147, 194, 251, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 194, 251, 0.14) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridDrift 24s linear infinite;
+}
+.sheen { position: relative; overflow: hidden; }
+.sheen::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 42%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+  animation: sheenPass 3.6s ease-in-out infinite;
+}
+.bar-grow { animation: barGrow var(--boot-duration, 2000ms) cubic-bezier(0.4, 0.15, 0.2, 1) forwards; }
+
+/* Deep navy intelligence panel used on the entry screen */
+.panel-navy {
+  background:
+    radial-gradient(900px 420px at 85% -10%, rgba(47,131,239,0.38) 0%, rgba(47,131,239,0) 60%),
+    radial-gradient(700px 500px at -10% 110%, rgba(18,87,196,0.42) 0%, rgba(18,87,196,0) 62%),
+    linear-gradient(155deg, #07162f 0%, #0b1f45 45%, #102a52 100%);
+}
+.tabular { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-mark, .boot-ring, .boot-word, .float-slow, .rise-in, .draw-line,
+  .node-pulse, .soft-glow, .grid-drift, .sheen::after, .bar-grow,
+  .page-enter, .fade-in, .stagger > * { animation: none !important; }
+}
+
+/* ==========================================================================
+   MULTILINGUAL TYPOGRAPHY
+   Tamil and Devanagari need taller line boxes than Latin or their vowel
+   signs (matras) clip against tight Tailwind leadings. We widen the line box
+   and relax letter-spacing per script instead of touching every component.
+   Fonts are system stacks only: no webfont is fetched, so the sandboxed
+   preview (which has no network) renders identically to production.
+   ========================================================================== */
+
+:root {
+  --font-latin: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --font-tamil: 'Noto Sans Tamil', 'Nirmala UI', 'Latha', 'Tamil Sangam MN',
+    'InaiMathi', 'Noto Sans Tamil UI', sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', 'Nirmala UI', 'Mangal',
+    'Kohinoor Devanagari', 'Devanagari Sangam MN', sans-serif;
+}
+
+html.lang-ta body,
+html.lang-ta input,
+html.lang-ta select,
+html.lang-ta textarea,
+html.lang-ta button {
+  font-family: var(--font-tamil), var(--font-latin);
+}
+
+html.lang-hi body,
+html.lang-hi input,
+html.lang-hi select,
+html.lang-hi textarea,
+html.lang-hi button {
+  font-family: var(--font-devanagari), var(--font-latin);
+}
+
+/* Indic scripts: give every text node room so matras and vowel signs above
+   and below the baseline are never clipped by a tight line-height. */
+html.lang-ta body,
+html.lang-hi body {
+  line-height: 1.65;
+  letter-spacing: 0;
+}
+
+html.lang-ta :where(p, span, li, a, label, button, h1, h2, h3, h4, td, th, option, div),
+html.lang-hi :where(p, span, li, a, label, button, h1, h2, h3, h4, td, th, option, div) {
+  line-height: 1.6;
+  /* Latin tracking utilities squeeze conjuncts - neutralise them. */
+  letter-spacing: normal;
+}
+
+/* Uppercase eyebrow labels are a Latin convention: it does nothing for Tamil
+   or Devanagari and its wide tracking breaks conjunct rendering. */
+html.lang-ta .uppercase,
+html.lang-hi .uppercase {
+  text-transform: none;
+}
+
+html.lang-ta :where([class*='tracking-']),
+html.lang-hi :where([class*='tracking-']) {
+  letter-spacing: normal;
+}
+
+/* Indic words cannot hyphenate mid-conjunct; allow wrapping anywhere a break
+   is legal so long compounds never overflow a card or a button. */
+html.lang-ta :where(p, span, li, a, label, h1, h2, h3, h4, td, th),
+html.lang-hi :where(p, span, li, a, label, h1, h2, h3, h4, td, th) {
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: none;
+}
+
+/* Buttons and badges must grow with their label rather than clip it. */
+html.lang-ta button,
+html.lang-hi button {
+  white-space: normal;
+  height: auto;
+  min-height: 0;
+}
+
+/* The brand wordmark stays Latin in every language - it is a product name. */
+.brand-wordmark,
+.tabular,
+.mono-id {
+  font-family: var(--font-latin);
+  letter-spacing: normal;
+}

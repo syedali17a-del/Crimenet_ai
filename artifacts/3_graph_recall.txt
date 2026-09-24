@@ -1,0 +1,37 @@
+================================================================================================
+PHASE 3.1 - SEEDED RELATIONSHIP RECALL: is the demo graph DERIVED or AUTHORED?
+================================================================================================
+rel       source    rel_type         target    evidence  src   tgt   co-event  verdict
+------------------------------------------------------------------------------------------------
+REL-001   PER-001   USED             VEH-001   EV-1024   yes   yes   yes       REPRODUCED
+REL-002   PER-001   OBSERVED_AT      LOC-001   EV-1024   yes   yes   yes       REPRODUCED
+REL-003   PER-001   USED             PHN-001   EV-1024   yes   yes   yes       REPRODUCED
+REL-004   PHN-001   CONNECTED_TO     PHN-002   EV-1025   yes   yes   yes       REPRODUCED
+REL-005   PER-004   USED             PHN-002   EV-1025   yes   yes   yes       REPRODUCED
+REL-006   PER-007   OBSERVED_AT      VEH-002   EV-1026   yes   yes   yes       REPRODUCED
+REL-007   PER-012   OBSERVED_AT      VEH-002   EV-1026   yes   yes   yes       REPRODUCED
+REL-008   VEH-002   LOCATED_AT       LOC-003   EV-1026   yes   yes   yes       REPRODUCED
+REL-009   PER-002   USED             VEH-001   EV-2041   yes   yes   yes       REPRODUCED
+REL-010   PER-002   OBSERVED_AT      LOC-001   EV-2041   yes   yes   yes       REPRODUCED
+REL-011   PER-004   OBSERVED_AT      LOC-001   EV-2041   yes   yes   yes       REPRODUCED
+REL-012   PER-005   OBSERVED_AT      LOC-001   EV-2041   yes   yes   yes       REPRODUCED
+REL-013   PER-009   USED             VEH-003   EV-2043   yes   yes   yes       REPRODUCED
+REL-014   PER-013   CONNECTED_TO     PHN-002   EV-2043   yes   yes   yes       REPRODUCED
+REL-015   PER-006   USED             ACC-001   EV-3070   yes   yes   yes       REPRODUCED
+REL-016   ACC-001   TRANSACTED_WITH  ACC-002   EV-3070   yes   yes   yes       REPRODUCED
+REL-017   PER-008   USED             ACC-002   EV-3070   yes   yes   yes       REPRODUCED
+REL-018   PER-003   USED             VEH-001   EV-3071   yes   yes   yes       REPRODUCED
+REL-019   PER-003   OBSERVED_AT      LOC-005   EV-3071   yes   yes   yes       REPRODUCED
+REL-020   PER-004   OBSERVED_AT      LOC-005   EV-3071   yes   yes   yes       REPRODUCED
+REL-021   ORG-002   LOCATED_AT       LOC-005   EV-3071   yes   yes   yes       REPRODUCED
+REL-022   PER-010   USED             VEH-004   EV-4090   yes   yes   yes       REPRODUCED
+REL-023   PER-011   PART_OF          ORG-002   EV-4090   yes   yes   yes       REPRODUCED
+REL-024   PER-015   MENTIONED_IN     VEH-004   EV-4090   yes   yes   yes       REPRODUCED
+REL-025   PER-014   ASSOCIATED_WITH  ACC-002   EV-3070   yes   yes   yes       REPRODUCED
+REL-026   PER-001   ASSOCIATED_WITH  ORG-001   EV-1026   yes   yes   yes       REPRODUCED
+REL-027   PER-004   USED             VEH-001   EV-2041   yes   yes   yes       REPRODUCED
+REL-028   DEV-001   ASSOCIATED_WITH  PER-002   EV-2042   yes   yes   yes       REPRODUCED
+------------------------------------------------------------------------------------------------
+REPRODUCED by the pipeline : 28/28 (100.0%)
+Endpoints only (no co-event): 0
+Not derivable at all       : 0

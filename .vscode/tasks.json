@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "CrimeNet: install backend deps",
+      "type": "shell",
+      "command": "${command:python.interpreterPath} -m pip install -r requirements.txt && ${command:python.interpreterPath} -m spacy download en_core_web_sm",
+      "options": { "cwd": "${workspaceFolder}/backend" },
+      "problemMatcher": []
+    },
+    {
+      "label": "CrimeNet: install frontend deps",
+      "type": "shell",
+      "command": "npm install",
+      "options": { "cwd": "${workspaceFolder}/frontend" },
+      "problemMatcher": []
+    },
+    {
+      "label": "CrimeNet: API server",
+      "type": "shell",
+      "command": "${command:python.interpreterPath} -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload",
+      "options": { "cwd": "${workspaceFolder}/backend" },
+      "isBackground": true,
+      "presentation": { "group": "crimenet", "panel": "dedicated", "reveal": "always" },
+      "problemMatcher": {
+        "pattern": [{ "regexp": "^.*$", "file": 0, "location": 1, "message": 2 }],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*Started server process.*",
+          "endsPattern": ".*Application startup complete.*"
+        }
+      }
+    },
+    {
+      "label": "CrimeNet: Web app",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": { "cwd": "${workspaceFolder}/frontend" },
+      "isBackground": true,
+      "presentation": { "group": "crimenet", "panel": "dedicated", "reveal": "always" },
+      "problemMatcher": {
+        "pattern": [{ "regexp": "^.*$", "file": 0, "location": 1, "message": 2 }],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*VITE.*",
+          "endsPattern": ".*Local:.*"
+        }
+      }
+    },
+    {
+      "label": "▶ Run CrimeNet AI (API + Web)",
+      "dependsOn": ["CrimeNet: API server", "CrimeNet: Web app"],
+      "dependsOrder": "parallel",
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": true }
+    },
+    {
+      "label": "CrimeNet: verify pipeline (33 checks)",
+      "type": "shell",
+      "command": "bash verify_workflow.sh",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "CrimeNet: production build",
+      "type": "shell",
+      "command": "npm run build",
+      "options": { "cwd": "${workspaceFolder}/frontend" },
+      "problemMatcher": []
+    }
+  ]
+}

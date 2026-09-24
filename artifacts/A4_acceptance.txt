@@ -1,0 +1,43 @@
+=== A4(1) posture endpoint: GET /api/security/ai-safety-posture
+{
+    "generative_model_in_evidence_path": false,
+    "reasoning": "Entity extraction, resolution, network/anomaly analysis and hypothesis generation are all rule-based or classical ML (spaCy NER, RapidFuzz, NetworkX, IsolationForest). No LLM or generative model receives untrusted document text with the ability to write to the graph, so there is no hallucination surface and no prompt-injection surface in the evidence path.",
+    "verified_by": "backend/scripts/check_no_llm_in_path.py",
+    "what_that_means": {
+        "untrusted_text_never_reaches_a_generative_model": true,
+        "no_model_can_write_to_the_graph": true,
+        "every_extracted_entity_carries_its_method": "entity_agent records the methods (rule / NER / vocabulary / structural hint) on each extracted entity, so a reviewer sees why it was proposed.",
+        "no_generated_text_in_the_ui": "Interpretation strings are templates filled from computed values, not generated prose."
+    },
+    "model_inventory": {
+        "statistical_ner": "spaCy en_core_web_sm (en_core_web_sm, statistical NER for English text; a token-classification Transformers model is used only if local weights are present, and it is deliberately not required)",
+        "string_matching": "RapidFuzz (deterministic edit-distance ratios)",
+        "graph": "NetworkX (degree/betweenness centrality, Louvain communities)",
+        "anomaly": "scikit-learn IsolationForest (classical ML, feature space documented in app/analytics/anomaly.py)",
+        "generative": "none - no openai / anthropic / langchain / LLM client is imported anywhere in app/agents, app/analytics or app/api"
+    },
+    "residual_risks_we_do_not_claim_to_have_solved": [
+        "Extraction is imperfect: a false positive is possible and is why every extracted entity carries a confidence and a method string, and why nothing is auto-merged.",
+        "Uploaded documents can be wrong or poisoned at the source; source_trust records how the document arrived and corroboration weighs low-trust sources less.",
+        "A rule-based pipeline can be wrong in a consistent way - the evaluation harness (scripts/eval_extraction.py) measures that against labelled ground truth, including negative cases that must NOT be extracted."
+    ],
+    "verified_at_runtime_by": "scripts/check_no_llm_in_path.py (static check, non-zero exit on a generative import in the evidence path)",
+    "checked_by": "SUP-1100",
+    "checked_at": "2026-09-22T16:26:08Z"
+}
+
+=== A4(2) static check, AS SHIPPED
+   exit=0  (0 = PASS)
+
+=== A4(3) TEMPORARY INJECTION: 'import openai' added at app/agents/network_agent.py line 1
+VIOLATIONS - the evidence path now contains a generative model:
+  FAIL  app/agents/network_agent.py:1  generative library 'openai'
+        import openai
+
+GENERATIVE-MODEL CHECK: FAIL
+================================================================================================
+   exit=1
+
+=== A4(4) RESTORED (diff -q silent = byte-identical)
+   restore verified byte-identical
+   exit=0  (0 = PASS again)

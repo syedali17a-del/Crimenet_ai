@@ -1,0 +1,14 @@
+scanning for the raw identifier digits 9840012345 in every response:
+  clean GET   /api/graph                                 raw occurrences: 0
+  clean GET   /api/entities?entity_type=PHONE            raw occurrences: 0
+  clean GET   /api/entities/PHN-001                      raw occurrences: 0
+  clean POST  /api/analysis/network                      raw occurrences: 0
+  clean POST  /api/analysis/cross-case                   raw occurrences: 0
+  clean POST  /api/analysis/corroboration                raw occurrences: 0
+  clean GET   /api/timeline                              raw occurrences: 0
+  clean GET   /api/map                                   raw occurrences: 0
+  clean GET   /api/search?q=9840012345                   raw occurrences: 0
+  clean POST  /api/analysis/entity-resolution            raw occurrences: 0
+
+audited reveal action: value=+919840012345 masked_form=+91 98400 ••••5 audited=True
+RESULT: PASS - no endpoint leaks the raw identifier
