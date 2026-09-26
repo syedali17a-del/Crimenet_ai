@@ -56,8 +56,22 @@ services:
       - key: CRIMENET_TLS_MODE
         value: TERMINATED_AT_GATEWAY
 
-      # Persistent state on the mounted disk — the audit hash chain and the
-      # write-once evidence blobs must survive a redeploy.
+      # STATELESS BY DESIGN ON THIS FREE TIER. /tmp is wiped on every redeploy
+      # and on most restarts — a persistent disk that survives those events is
+      # a paid Render add-on, which this deployment deliberately does not use
+      # so the public demo link stays free. This means the audit ledger and
+      # object storage on THIS specific instance do not carry a persistence
+      # guarantee, and that's a known, accepted trade-off, not an oversight.
+      #
+      # The tamper-evidence and integrity claims themselves are proven at the
+      # code level, independent of where the ledger file happens to live: run
+      #   backend/scripts/tamper_test.py
+      # against this same codebase and it detects both a direct object+hash
+      # rewrite and a full ledger-rewrite attack, reproducibly, every time.
+      # For a deployment where the ledger itself must persist across
+      # restarts, attach a Render persistent disk (paid) or deploy on a host
+      # with real disk persistence per DEPLOY.md Path A, and point these same
+      # three variables at that disk instead of /tmp.
       - key: CRIMENET_LEDGER_PATH
         value: /tmp/ledger.db
       - key: CRIMENET_LEDGER_WITNESS_PATH
